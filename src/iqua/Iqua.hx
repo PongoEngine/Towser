@@ -62,6 +62,10 @@ enum Attribute<Msg>
     TYPE(value :String);
     STYLE(value :Dynamic);
     ATTR(key :Dynamic, value :String);
+    HOOK_INIT(f :Dynamic -> Msg);
+    HOOK_INSERT(f :Dynamic -> Msg);
+    HOOK_REMOVE(f :Dynamic -> Msg);
+    HOOK_DESTROY(f :Dynamic -> Msg);
 }
 
 @:jsRequire("snabbdom")

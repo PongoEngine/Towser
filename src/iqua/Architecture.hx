@@ -43,6 +43,10 @@ class Architecture<Model, Msg>
                 case HEIGHT(value): setField(obj.attrs, "height", value);
                 case STYLE(value): setField(obj, "style", value);
                 case ATTR(key, value): setField(obj.attrs, key, value);
+                case HOOK_INIT(f): setField(obj.hook, "insert", (v) -> arch.update(f(v)));
+                case HOOK_INSERT(f): setField(obj.hook, "insert", (v) -> arch.update(f(v)));
+                case HOOK_REMOVE(f): setField(obj.hook, "insert", (v) -> arch.update(f(v)));
+                case HOOK_DESTROY(f): setField(obj.hook, "insert", (v) -> arch.update(f(v)));
             }
         }
         return obj;
@@ -69,6 +73,7 @@ class Architecture<Model, Msg>
         untyped obj["on"] = {};
         untyped obj["class"] = {};
         untyped obj["attrs"] = {};
+        untyped obj["hook"] = {};
         return obj;
     }
 
