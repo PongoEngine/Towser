@@ -12,21 +12,6 @@ extern class Html
         return h("div", Architecture.objFromAttributes(attributes, arch), children);
     }
 
-    public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
-    {
-        return h("span", Architecture.objFromAttributes(attributes, arch), text);
-    }
-
-    public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
-    {
-        return h("p", Architecture.objFromAttributes(attributes, arch), text);
-    }
-
-    public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
-    {
-        return h("h1", Architecture.objFromAttributes(attributes, arch), text);
-    }
-
     public static inline function button<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
     {
         return h("button", Architecture.objFromAttributes(attributes, arch), text);
@@ -45,6 +30,47 @@ extern class Html
     public static inline function br<Msg, Model>() : VirtualNode
     {
         return h("br", {});
+    }
+
+    // -------------------------- TEXT ELEMENTS --------------------------
+    public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("span", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("p", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h1", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h2<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h2", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h3<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h3", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h4<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h4", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h5<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h5", Architecture.objFromAttributes(attributes, arch), text);
+    }
+
+    public static inline function h6<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    {
+        return h("h6", Architecture.objFromAttributes(attributes, arch), text);
     }
 
     @:selfCall private static function h(element :String, attrs :Dynamic, ?e:EitherType<Array<VirtualNode>, String>) : VirtualNode;
