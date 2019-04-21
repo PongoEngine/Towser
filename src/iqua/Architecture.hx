@@ -50,11 +50,12 @@ class Architecture<Model, Msg>
                 case MOUSE_UP(d,f): setField(obj.on, "mouseup", (e) -> arch.update(f(d,e.pageX, e.pageY)));
 
                 case ON_CHANGE(f): setField(obj.on, "change", (e) -> arch.update(f(e.target.value)));
-                case ON_INPUT(f): setField(obj.on, "input", (e) -> arch.update(f(e.target.value)));
+                case ON_INPUT(d,f): setField(obj.on, "input", (e) -> arch.update(f(d, e.target.value)));
                 case CLASS(value): setField(obj.attrs, "class", value);
                 case TYPE(value): setField(obj.attrs, "type", value);
                 case WIDTH(value): setField(obj.attrs, "width", value);
                 case HEIGHT(value): setField(obj.attrs, "height", value);
+                case VALUE(value): setField(obj.attrs, "value", value);
                 case STYLE(value): setField(obj, "style", value);
                 case ATTR(key, value): setField(obj.attrs, key, value);
                 case HOOK_INIT(f): setField(obj.hook, "init", (v) -> arch.update(f(v)));

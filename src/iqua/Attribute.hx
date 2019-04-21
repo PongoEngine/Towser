@@ -20,13 +20,15 @@ enum Attribute<Msg>
     MOUSE_OUT(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
     MOUSE_UP(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
 
+    ON_INPUT(data :Dynamic, f :Dynamic -> String -> Msg);
+
     ON_CHANGE(f :Dynamic -> Msg);
-    ON_INPUT(f :Dynamic -> Msg);
     CLASS(value :String);
     WIDTH(value :String);
     HEIGHT(value :String);
     TYPE(value :String);
     STYLE(value :Dynamic);
+    VALUE(value :String);
     ATTR(key :String, value :String);
     HOOK_INIT(f :Dynamic -> Msg);
     HOOK_INSERT(f :Dynamic -> Msg);
