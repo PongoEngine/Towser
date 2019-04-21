@@ -5,6 +5,7 @@ import iqua.Architecture;
 enum Attribute<Msg>
 {
     ON_CLICK(msg :Msg);
+    ON_DBL_CLICK(msg :Msg);
     ON_CHANGE(f :Dynamic -> Msg);
     ON_INPUT(f :Dynamic -> Msg);
     CLASS(value :String);

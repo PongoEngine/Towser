@@ -34,6 +34,7 @@ class Architecture<Model, Msg>
 
         for(a in attributes) {
             switch a {
+                case ON_DBL_CLICK(msg): setField(obj.on, "dblclick", arch.update.bind(msg));
                 case ON_CLICK(msg): setField(obj.on, "click", arch.update.bind(msg));
                 case ON_CHANGE(f): setField(obj.on, "change", (e) -> arch.update(f(e.target.value)));
                 case ON_INPUT(f): setField(obj.on, "input", (e) -> arch.update(f(e.target.value)));
