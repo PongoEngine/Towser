@@ -27,7 +27,7 @@ enum Attribute<Msg>
     HEIGHT(value :String);
     TYPE(value :String);
     STYLE(value :Dynamic);
-    ATTR(key :Dynamic, value :String);
+    ATTR(key :String, value :String);
     HOOK_INIT(f :Dynamic -> Msg);
     HOOK_INSERT(f :Dynamic -> Msg);
     HOOK_REMOVE(f :Dynamic -> Msg);
