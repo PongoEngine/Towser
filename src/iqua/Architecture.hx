@@ -9,7 +9,7 @@ class Architecture<Model, Msg>
         _update = update;
         _view = view;
         _model = model;
-        _cache = new Map<String, VirtualNode>();
+        _lazyMap = new LazyMap();
         init(element);
     }
 
@@ -19,21 +19,6 @@ class Architecture<Model, Msg>
         var newNode = _view(this, _model);
         _patch(_vNode, newNode);
         _vNode = newNode;
-    }
-
-    public function setCache(key :String, vnode :VirtualNode) : Void
-    {
-        _cache.set(key, vnode);
-    }
-
-    public function getCache(key :String) : VirtualNode
-    {
-        return _cache.get(key);
-    }
-
-    public function hasCache(key :String) : Bool
-    {
-        return _cache.exists(key);
     }
 
     private function init(element :String) : Void
@@ -50,5 +35,6 @@ class Architecture<Model, Msg>
     private var _vNode :VirtualNode;
     private var _patch :Dynamic;
     private var _element :js.html.Element;
-    private var _cache :Map<String, VirtualNode>;
+    @:allow(iqua.Lazy)
+    private var _lazyMap :LazyMap;
 }
