@@ -39,6 +39,7 @@ typedef Model =
 {
 	var name :String;
 }
+
 ```
 
 ### License
