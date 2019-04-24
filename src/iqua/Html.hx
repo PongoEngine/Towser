@@ -39,7 +39,6 @@ class Html
         }
     }
 
-    // -------------------------- TEXT ELEMENTS --------------------------
     @:extern public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
