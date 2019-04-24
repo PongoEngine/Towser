@@ -1,6 +1,8 @@
-package iqua.util;
+package towser
+.util;
 
-import iqua.RenderFunction;
+import towser
+.RenderFunction;
 
 class LazyMap
 {

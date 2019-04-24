@@ -1,8 +1,8 @@
-package iqua;
+package towser;
 
-import iqua.Architecture;
-import iqua.RenderFunction;
-import iqua.util.IncrementalDOM;
+import towser.Architecture;
+import towser.RenderFunction;
+import towser.util.IncrementalDOM;
 
 typedef Lazy1<Model, Msg, A> = A -> RenderFunction<Model, Msg>;
 typedef Lazy2<Model, Msg, A, B> = A -> B -> RenderFunction<Model, Msg>;

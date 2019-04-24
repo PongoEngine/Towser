@@ -1,7 +1,7 @@
-package iqua;
+package towser;
 
-import iqua.util.IncrementalDOM;
-import iqua.util.LazyMap;
+import towser.util.IncrementalDOM;
+import towser.util.LazyMap;
 
 class Architecture<Model, Msg>
 {
@@ -30,6 +30,6 @@ class Architecture<Model, Msg>
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
-    @:allow(iqua.Lazy)
+    @:allow(towser.Lazy)
     private var _lazyMap :LazyMap;
 }

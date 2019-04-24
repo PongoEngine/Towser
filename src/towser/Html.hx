@@ -1,6 +1,6 @@
-package iqua;
+package towser;
 
-import iqua.util.IncrementalDOM;
+import towser.util.IncrementalDOM;
 
 
 class Html
@@ -96,7 +96,7 @@ class Html
         }
     }
 
-    @:extern private static inline function textElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Void
+    private static function textElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Void
     {
         IncrementalDOM.elementOpenStart(tagname, "", _scratchStatics);
         Html.setAttrs(attributes, arch);
@@ -105,7 +105,7 @@ class Html
         IncrementalDOM.elementClose(tagname);
     }
 
-    @:extern private static inline function containerElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
+    private static function containerElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
     {
         IncrementalDOM.elementOpenStart(tagname, "", _scratchStatics);
         Html.setAttrs(attributes, arch);
@@ -117,7 +117,7 @@ class Html
         IncrementalDOM.elementClose(tagname);
     }
 
-    @:extern private static inline function voidElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
+    private static function voidElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
     {
         IncrementalDOM.elementOpenStart(tagname, "", _scratchStatics);
         Html.setAttrs(attributes, arch);

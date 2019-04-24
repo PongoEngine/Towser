@@ -1,4 +1,4 @@
-package iqua;
+package towser;
 
 enum Attribute<Msg>
 {
