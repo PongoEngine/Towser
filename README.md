@@ -25,8 +25,7 @@ class Main {
 
 	public static function update(msg:Msg, model:Model):Model {
 		switch msg {
-			case SayName(name):
-				trace(name);
+			case SayName(name): trace(name);
 		}
 		return model;
 	}
