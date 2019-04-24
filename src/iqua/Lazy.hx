@@ -30,7 +30,6 @@ class Lazy
         return function(arch :Architecture<Model, Msg>) {
             if(!arch._lazyMap.shouldSkip1(selector, a)) {
                 arch._lazyMap.setLazy1(selector, a);
-                trace("caching!");
                 f(a)(arch);
             }
             else {
