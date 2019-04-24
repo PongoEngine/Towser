@@ -1,11 +1,10 @@
 package iqua;
 
-import haxe.Constraints.Function;
 import iqua.util.IncrementalDOM;
 
 class Architecture<Model, Msg>
 {
-    public function new(element :String, update :Msg -> Model -> Model, view :Architecture<Model, Msg> -> Model -> Function, model :Model) : Void
+    public function new(element :String, update :Msg -> Model -> Model, view :Architecture<Model, Msg> -> Model -> RenderFunction, model :Model) : Void
     {
         _update = update;
         _view = view;
@@ -26,7 +25,7 @@ class Architecture<Model, Msg>
     }
 
     private var _update : Msg -> Model -> Model;
-    private var _view :Architecture<Model, Msg> -> Model -> Function;
+    private var _view :Architecture<Model, Msg> -> Model -> RenderFunction;
     private var _model :Model;
     private var _element :js.html.Element;
 }

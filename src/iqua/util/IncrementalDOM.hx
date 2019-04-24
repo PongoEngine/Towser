@@ -1,6 +1,5 @@
 package iqua.util;
 
-import haxe.Constraints.Function;
 import haxe.extern.Rest;
 import js.html.Element;
 import js.html.Text;
@@ -15,8 +14,8 @@ extern class IncrementalDOM
     public static function elementOpenEnd() : Element;
     public static function elementClose(tagname :String) : Element;
     public static function elementVoid(tagname :String, key :String, staticPropertyValuePairs :Array<String>, vargs :Rest<Dynamic>) : Element;
-    public static function text(value :Dynamic, ?formatters :Function) : Text;
-    public static function patch(node :Node, description :Function, data :Any) : Element;
+    public static function text(value :Dynamic, ?formatters :RenderFunction) : Text;
+    public static function patch(node :Node, description :RenderFunction, data :Any) : Element;
     public static function currentElement() : Element;
     public static function currentPointer() : Node;
     public static function skip() : Void;

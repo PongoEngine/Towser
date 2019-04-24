@@ -1,39 +1,38 @@
 package iqua;
 
-import haxe.Constraints.Function;
 import iqua.util.IncrementalDOM;
 
 class Html
 {
-    @:extern public static inline function div<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<Function>) : Function
+    @:extern public static inline function div<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction>) : RenderFunction
     {
         return function() {
             containerElement("div", arch, attributes, childRenders);
         }
     }
 
-    @:extern public static inline function input<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Function
+    @:extern public static inline function input<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : RenderFunction
     {
         return function() {
             voidElement("input", arch, attributes);
         }
     }
 
-    @:extern public static inline function canvas<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Function
+    @:extern public static inline function canvas<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : RenderFunction
     {
         return function() {
             voidElement("canvas", arch, attributes);
         }
     }
 
-    @:extern public static inline function br<Msg, Model>() : Function
+    @:extern public static inline function br<Msg, Model>() : RenderFunction
     {
         return function() {
             IncrementalDOM.elementVoid("br", "", _scratchStatics);
         }
     }
 
-    @:extern public static inline function button<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function button<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("button", arch, attributes, text);
@@ -41,56 +40,56 @@ class Html
     }
 
     // -------------------------- TEXT ELEMENTS --------------------------
-    @:extern public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("span", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("p", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h1", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h2<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h2<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h2", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h3<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h3<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h3", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h4<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h4<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h4", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h5<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h5<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h5", arch, attributes, text);
         }
     }
 
-    @:extern public static inline function h6<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
+    @:extern public static inline function h6<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : RenderFunction
     {
         return function() {
             textElement("h6", arch, attributes, text);
@@ -106,7 +105,7 @@ class Html
         IncrementalDOM.elementClose(tagname);
     }
 
-    @:extern private static inline function containerElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<Function>) : Void
+    @:extern private static inline function containerElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction>) : Void
     {
         IncrementalDOM.elementOpenStart(tagname, "", _scratchStatics);
         Html.setAttrs(attributes, arch);
