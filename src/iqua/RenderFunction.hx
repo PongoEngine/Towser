@@ -1,3 +1,3 @@
 package iqua;
 
-typedef RenderFunction = Void -> Void;
+typedef RenderFunction<Model, Msg> = Architecture<Model, Msg> -> Void;

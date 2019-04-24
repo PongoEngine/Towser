@@ -4,9 +4,9 @@ import iqua.Architecture;
 import iqua.RenderFunction;
 import iqua.util.IncrementalDOM;
 
-typedef Lazy1<Model, Msg, A> = Architecture<Model, Msg> -> A -> RenderFunction;
-typedef Lazy2<Model, Msg, A, B> = Architecture<Model, Msg> -> A -> B -> RenderFunction;
-typedef Lazy3<Model, Msg, A, B, C> = Architecture<Model, Msg> -> A -> B -> C -> RenderFunction;
+typedef Lazy1<Model, Msg, A> = Architecture<Model, Msg> -> A -> RenderFunction<Model, Msg>;
+typedef Lazy2<Model, Msg, A, B> = Architecture<Model, Msg> -> A -> B -> RenderFunction<Model, Msg>;
+typedef Lazy3<Model, Msg, A, B, C> = Architecture<Model, Msg> -> A -> B -> C -> RenderFunction<Model, Msg>;
 
 class Lazy
 {
@@ -25,30 +25,36 @@ class Lazy
         return _lazy3.bind(selector, f);
     }
 
-    public static function _lazy1<Model, Msg, A>(selector :String, f :Lazy1<Model, Msg, A>, arch :Architecture<Model, Msg>, a :A) : RenderFunction
+    public static function _lazy1<Model, Msg, A>(selector :String, f :Lazy1<Model, Msg, A>, arch :Architecture<Model, Msg>, a :A) : RenderFunction<Model, Msg>
     {
         if(!arch._lazyMap.shouldSkip1(selector, a)) {
             arch._lazyMap.setLazy1(selector, a);
             return f(arch, a);
         }
-        return IncrementalDOM.skipNode;
+        return function(arch :Architecture<Model, Msg>) {
+            return IncrementalDOM.skipNode;
+        }
     }
 
-    public static function _lazy2<Model, Msg, A, B>(selector :String, f :Lazy2<Model, Msg, A, B>, arch :Architecture<Model, Msg>, a :A, b:B) : RenderFunction
+    public static function _lazy2<Model, Msg, A, B>(selector :String, f :Lazy2<Model, Msg, A, B>, arch :Architecture<Model, Msg>, a :A, b:B) : RenderFunction<Model, Msg>
     {
         if(!arch._lazyMap.shouldSkip2(selector, a, b)) {
             arch._lazyMap.setLazy2(selector, a, b);
             return f(arch, a, b);
         }
-        return IncrementalDOM.skipNode;
+        return function(arch :Architecture<Model, Msg>) {
+            return IncrementalDOM.skipNode;
+        }
     }
 
-    public static function _lazy3<Model, Msg, A, B, C>(selector :String, f :Lazy3<Model, Msg, A, B, C>, arch :Architecture<Model, Msg>, a :A, b:B, c :C) : RenderFunction
+    public static function _lazy3<Model, Msg, A, B, C>(selector :String, f :Lazy3<Model, Msg, A, B, C>, arch :Architecture<Model, Msg>, a :A, b:B, c :C) : RenderFunction<Model, Msg>
     {
         if(!arch._lazyMap.shouldSkip3(selector, a, b, c)) {
             arch._lazyMap.setLazy3(selector, a, b, c);
             return f(arch, a, b, c);
         }
-        return IncrementalDOM.skipNode;
+        return function(arch :Architecture<Model, Msg>) {
+            return IncrementalDOM.skipNode;
+        }
     }
 }
