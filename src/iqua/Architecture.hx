@@ -1,6 +1,7 @@
 package iqua;
 
 import iqua.util.IncrementalDOM;
+import iqua.util.LazyMap;
 
 class Architecture<Model, Msg>
 {
@@ -9,6 +10,7 @@ class Architecture<Model, Msg>
         _update = update;
         _view = view;
         _model = model;
+        _lazyMap = new LazyMap();
         init(element);
     }
 
@@ -28,4 +30,6 @@ class Architecture<Model, Msg>
     private var _view :Architecture<Model, Msg> -> Model -> RenderFunction;
     private var _model :Model;
     private var _element :js.html.Element;
+    @:allow(iqua.Lazy)
+    private var _lazyMap :LazyMap;
 }
