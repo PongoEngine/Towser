@@ -1,6 +1,7 @@
 package iqua;
 
 import haxe.Constraints.Function;
+import iqua.util.IncrementalDOM;
 
 class Architecture<Model, Msg>
 {
@@ -9,7 +10,6 @@ class Architecture<Model, Msg>
         _update = update;
         _view = view;
         _model = model;
-        // _lazyMap = new LazyMap();
         init(element);
     }
 
@@ -29,6 +29,4 @@ class Architecture<Model, Msg>
     private var _view :Architecture<Model, Msg> -> Model -> Function;
     private var _model :Model;
     private var _element :js.html.Element;
-    // @:allow(iqua.Lazy)
-    // private var _lazyMap :LazyMap;
 }

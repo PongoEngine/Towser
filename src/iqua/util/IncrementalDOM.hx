@@ -1,4 +1,4 @@
-package iqua;
+package iqua.util;
 
 import haxe.Constraints.Function;
 import haxe.extern.Rest;

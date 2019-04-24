@@ -1,4 +1,4 @@
-// package iqua;
+// package iqua.util;
 
 // class LazyMap
 // {
