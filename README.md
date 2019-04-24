@@ -2,6 +2,11 @@
 
 Towser is a declarative framework for building fast web applications using Haxe.
 
+Towser was build to be:
+* Fast
+* Easy on GC
+* Concise
+
 ## Installation
 
 ## Documentation
