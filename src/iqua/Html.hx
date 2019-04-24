@@ -1,77 +1,149 @@
 package iqua;
 
+import haxe.Constraints.Function;
 import iqua.Util;
-import haxe.extern.EitherType;
+import iqua.IncrementalDOM;
 
-@:native("h")
-@:jsRequire("snabbdom/h", "default")
-extern class Html
+class Html
 {
-    public static inline function div<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, children :Array<VirtualNode>) : VirtualNode
+    public static inline function div<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<Function>) : Function
     {
-        return h("div", Util.objFromAttributes(attributes, arch), children);
+        return function() {
+            IncrementalDOM.elementOpenStart("div", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+
+            for(r in childRenders) {
+                r();
+            }
+            IncrementalDOM.elementClose("div");
+        }
     }
 
-    public static inline function button<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function button<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("button", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("button", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("button");
+        }
     }
 
-    public static inline function input<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : VirtualNode
+    public static inline function input<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Function
     {
-        return h("input", Util.objFromAttributes(attributes, arch));
+        return function() {
+            IncrementalDOM.elementOpenStart("input", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.elementClose("input");
+        }
     }
 
-    public static inline function canvas<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : VirtualNode
+    public static inline function canvas<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Function
     {
-        return h("canvas", Util.objFromAttributes(attributes, arch));
+        return function() {
+            IncrementalDOM.elementOpenStart("canvas", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.elementClose("canvas");
+        }
     }
 
-    public static inline function br<Msg, Model>() : VirtualNode
+    public static inline function br<Msg, Model>() : Function
     {
-        return h("br", {});
+        return function() {
+            IncrementalDOM.elementVoid("br", "", []);
+        }
     }
 
     // -------------------------- TEXT ELEMENTS --------------------------
-    public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function span<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("span", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("span", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("span");
+        }
     }
 
-    public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function p<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("p", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("p", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("p");
+        }
     }
 
-    public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h1<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h1", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h1", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h1");
+        }
     }
 
-    public static inline function h2<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h2<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h2", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h2", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h2");
+        }
     }
 
-    public static inline function h3<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h3<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h3", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h3", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h3");
+        }
     }
 
-    public static inline function h4<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h4<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h4", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h4", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h4");
+        }
     }
 
-    public static inline function h5<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h5<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h5", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h5", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h5");
+        }
     }
 
-    public static inline function h6<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : VirtualNode
+    public static inline function h6<Msg, Model>(arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, text :String) : Function
     {
-        return h("h6", Util.objFromAttributes(attributes, arch), text);
+        return function() {
+            IncrementalDOM.elementOpenStart("h6", "", []);
+            Util.setAttrs(attributes, arch);
+            IncrementalDOM.elementOpenEnd();
+            IncrementalDOM.text(text);
+            IncrementalDOM.elementClose("h6");
+        }
     }
-
-    @:selfCall private static function h(element :String, attrs :Dynamic, ?e:EitherType<Array<VirtualNode>, String>) : VirtualNode;
 }

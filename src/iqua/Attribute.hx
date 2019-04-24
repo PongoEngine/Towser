@@ -1,7 +1,5 @@
 package iqua;
 
-import iqua.Architecture;
-
 enum Attribute<Msg>
 {
     //MOUSE EVENTS
@@ -30,8 +28,4 @@ enum Attribute<Msg>
     STYLE(value :Dynamic);
     VALUE(value :String);
     ATTR(key :String, value :String);
-    HOOK_INIT(f :Dynamic -> Msg);
-    HOOK_INSERT(f :Dynamic -> Msg);
-    HOOK_REMOVE(f :Dynamic -> Msg);
-    HOOK_DESTROY(f :Dynamic -> Msg);
 }
