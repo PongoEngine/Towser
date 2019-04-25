@@ -10,10 +10,10 @@ class Architecture<Model, Msg>
 {
     /**
      * [Description]
-     * @param element 
-     * @param update 
-     * @param view 
-     * @param model 
+     * @param element - Root element ID
+     * @param update - State Update Function
+     * @param view  - State View Function
+     * @param model - State
      */
     public function new(element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
