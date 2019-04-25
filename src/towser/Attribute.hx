@@ -13,16 +13,16 @@ enum Attribute<Msg>
     SELECT(msg :Msg);
     WHEEL(msg :Msg);
 
-    MOUSE_DOWN(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_ENTER(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_LEAVE(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_MOVE(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_OVER(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_OUT(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
-    MOUSE_UP(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
+    MOUSE_DOWN(f :Int -> Int -> Msg);
+    MOUSE_ENTER(f :Int -> Int -> Msg);
+    MOUSE_LEAVE(f :Int -> Int -> Msg);
+    MOUSE_MOVE(f :Int -> Int -> Msg);
+    MOUSE_OVER(f :Int -> Int -> Msg);
+    MOUSE_OUT(f :Int -> Int -> Msg);
+    MOUSE_UP(f :Int -> Int -> Msg);
 
-    ON_INPUT(data :Dynamic, f :Dynamic -> String -> Msg);
-    ON_CHANGE(f :Dynamic -> Msg);
+    ON_INPUT(f :String -> Msg);
+    ON_CHANGE(f :Msg);
     
     CLASS(value :String);
     ID(value :String);
