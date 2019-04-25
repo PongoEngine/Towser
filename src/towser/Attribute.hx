@@ -1,7 +1,8 @@
 package towser;
 
-import towser.RenderFunction;
-
+/**
+ * 
+ */
 enum Attribute<Msg>
 {
     //MOUSE EVENTS

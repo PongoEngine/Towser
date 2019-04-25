@@ -3,8 +3,18 @@ package towser;
 import towser.util.IncrementalDOM;
 import towser.util.LazyMap;
 
+/**
+ * 
+ */
 class Architecture<Model, Msg>
 {
+    /**
+     * [Description]
+     * @param element 
+     * @param update 
+     * @param view 
+     * @param model 
+     */
     public function new(element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
@@ -14,6 +24,10 @@ class Architecture<Model, Msg>
         init(element);
     }
 
+    /**
+     * [Description]
+     * @param msg 
+     */
     public function update(msg :Msg) : Void
     {
         if(_update(msg, _model)) {
