@@ -1,5 +1,7 @@
 package towser;
 
+import towser.RenderFunction;
+
 enum Attribute<Msg>
 {
     //MOUSE EVENTS
@@ -19,9 +21,10 @@ enum Attribute<Msg>
     MOUSE_UP(data :Dynamic, f :Dynamic -> Int -> Int -> Msg);
 
     ON_INPUT(data :Dynamic, f :Dynamic -> String -> Msg);
-
     ON_CHANGE(f :Dynamic -> Msg);
+    
     CLASS(value :String);
+    ID(value :String);
     WIDTH(value :String);
     HEIGHT(value :String);
     TYPE(value :String);

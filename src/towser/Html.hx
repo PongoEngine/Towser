@@ -147,6 +147,7 @@ class Html
                 case ON_CHANGE(f): IncrementalDOM.attr("onchange", (e) -> arch.update(f(e.target.value)));
                 case ON_INPUT(d,f): IncrementalDOM.attr("oninput", (e) -> arch.update(f(d, e.target.value)));
                 case CLASS(value): IncrementalDOM.attr("class", value);
+                case ID(value): IncrementalDOM.attr("id", value);
                 case TYPE(value): IncrementalDOM.attr("type", value);
                 case WIDTH(value): IncrementalDOM.attr("width", value);
                 case HEIGHT(value): IncrementalDOM.attr("height", value);

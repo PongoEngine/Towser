@@ -5,7 +5,7 @@ import towser.util.LazyMap;
 
 class Architecture<Model, Msg>
 {
-    public function new(element :String, update :Msg -> Model -> Model, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
         _view = view;
@@ -16,8 +16,9 @@ class Architecture<Model, Msg>
 
     public function update(msg :Msg) : Void
     {
-        _model = _update(msg, _model);
-        IncrementalDOM.patch(_element, _view(_model), this);
+        if(_update(msg, _model)) {
+            IncrementalDOM.patch(_element, _view(_model), this);
+        }
     }
 
     private function init(element :String) : Void
@@ -26,7 +27,7 @@ class Architecture<Model, Msg>
         IncrementalDOM.patch(_element, _view(_model), this);
     }
 
-    private var _update : Msg -> Model -> Model;
+    private var _update : Msg -> Model -> Bool;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
