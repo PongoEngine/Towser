@@ -221,12 +221,15 @@ class Html
 
                 case ON_CHANGE(msg): IncrementalDOM.attr("onchange", msg);
                 case ON_INPUT(f): IncrementalDOM.attr("oninput", (e) -> arch.update(f(e.target.value)));
+                case ON_KEYDOWN(f): IncrementalDOM.attr("onkeydown", (e) -> arch.update(f(e.key)));
                 case CLASS(value): IncrementalDOM.attr("class", value);
                 case ID(value): IncrementalDOM.attr("id", value);
                 case TYPE(value): IncrementalDOM.attr("type", value);
                 case WIDTH(value): IncrementalDOM.attr("width", value);
                 case HEIGHT(value): IncrementalDOM.attr("height", value);
-                case VALUE(value): IncrementalDOM.attr("value", value);
+                case VALUE(value): {
+                    IncrementalDOM.attr("value", new String(value));
+                }
                 case STYLE(value): IncrementalDOM.attr("style", value);
                 case ATTR(key, value): IncrementalDOM.attr(key, value);
             }

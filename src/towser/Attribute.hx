@@ -22,6 +22,7 @@ enum Attribute<Msg>
     MOUSE_UP(f :Int -> Int -> Msg);
 
     ON_INPUT(f :String -> Msg);
+    ON_KEYDOWN(f :Key -> Msg);
     ON_CHANGE(f :Msg);
     
     CLASS(value :String);
@@ -32,4 +33,10 @@ enum Attribute<Msg>
     STYLE(value :Dynamic);
     VALUE(value :String);
     ATTR(key :String, value :String);
+}
+
+@:enum
+abstract Key(String)
+{
+    var Enter = "Enter";
 }
