@@ -22,6 +22,18 @@ class Html
     /**
      * [Description]
      * @param attributes 
+     * @return RenderFunction<Model, Msg>
+     */
+    @:extern public static inline function datalist<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            containerElement("datalist", arch, attributes, childRenders);
+        }
+    }
+
+    /**
+     * [Description]
+     * @param attributes 
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
@@ -68,6 +80,19 @@ class Html
     {
         return function(arch :Architecture<Model, Msg>) {
             textElement("button", arch, attributes, text);
+        }
+    }
+
+    /**
+     * [Description]
+     * @param attributes 
+     * @param text 
+     * @return RenderFunction<Model, Msg>
+     */
+    @:extern public static inline function option<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            textElement("option", arch, attributes, text);
         }
     }
 
