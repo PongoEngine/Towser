@@ -1,5 +1,7 @@
 package towser;
 
+import js.html.MouseEvent;
+
 /**
  * 
  */
@@ -13,17 +15,17 @@ enum Attribute<Msg>
     SELECT(msg :Msg);
     WHEEL(msg :Msg);
 
-    MOUSE_DOWN(f :Int -> Int -> Msg);
-    MOUSE_ENTER(f :Int -> Int -> Msg);
-    MOUSE_LEAVE(f :Int -> Int -> Msg);
-    MOUSE_MOVE(f :Int -> Int -> Msg);
-    MOUSE_OVER(f :Int -> Int -> Msg);
-    MOUSE_OUT(f :Int -> Int -> Msg);
-    MOUSE_UP(f :Int -> Int -> Msg);
+    MOUSE_DOWN(f :MouseEvent -> Msg);
+    MOUSE_ENTER(f :MouseEvent -> Msg);
+    MOUSE_LEAVE(f :MouseEvent -> Msg);
+    MOUSE_MOVE(f :MouseEvent -> Msg);
+    MOUSE_OVER(f :MouseEvent -> Msg);
+    MOUSE_OUT(f :MouseEvent -> Msg);
+    MOUSE_UP(f :MouseEvent -> Msg);
 
     ON_INPUT(f :String -> Msg);
     ON_KEYDOWN(f :Key -> Msg);
-    ON_CHANGE(f :Msg);
+    ON_CHANGE(f :String -> Msg);
     
     CLASS(value :String);
     ID(value :String);
@@ -32,7 +34,7 @@ enum Attribute<Msg>
     TYPE(value :String);
     STYLE(value :Dynamic);
     VALUE(value :String);
-    ATTR(key :String, value :String);
+    ATTR(key :String, value :Dynamic);
 }
 
 @:enum

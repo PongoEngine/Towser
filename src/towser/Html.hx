@@ -1,6 +1,7 @@
 package towser;
 
 import towser.util.IncrementalDOM;
+import js.html.MouseEvent;
 
 /**
  * 
@@ -211,15 +212,15 @@ class Html
                 case CONTEXT_MENU(msg): IncrementalDOM.attr("oncontextmenu", arch.update.bind(msg));
                 case SELECT(msg): IncrementalDOM.attr("onselect", arch.update.bind(msg));
                 case WHEEL(msg): IncrementalDOM.attr("onwheel", arch.update.bind(msg));
-                case MOUSE_DOWN(f): IncrementalDOM.attr("onmousedown", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_ENTER(f): IncrementalDOM.attr("onmouseenter", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_LEAVE(f): IncrementalDOM.attr("onmouseleave", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_MOVE(f): IncrementalDOM.attr("onmousemove", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_OVER(f): IncrementalDOM.attr("onmouseover", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_OUT(f): IncrementalDOM.attr("onmouseout", (e) -> arch.update(f(e.pageX, e.pageY)));
-                case MOUSE_UP(f): IncrementalDOM.attr("onmouseup", (e) -> arch.update(f(e.pageX, e.pageY)));
+                case MOUSE_DOWN(f): IncrementalDOM.attr("onmousedown", (e) -> arch.update(f(e)));
+                case MOUSE_ENTER(f): IncrementalDOM.attr("onmouseenter", (e) -> arch.update(f(e)));
+                case MOUSE_LEAVE(f): IncrementalDOM.attr("onmouseleave", (e) -> arch.update(f(e)));
+                case MOUSE_MOVE(f): IncrementalDOM.attr("onmousemove", (e) -> arch.update(f(e)));
+                case MOUSE_OVER(f): IncrementalDOM.attr("onmouseover", (e) -> arch.update(f(e)));
+                case MOUSE_OUT(f): IncrementalDOM.attr("onmouseout", (e) -> arch.update(f(e)));
+                case MOUSE_UP(f): IncrementalDOM.attr("onmouseup", (e) -> arch.update(f(e)));
 
-                case ON_CHANGE(msg): IncrementalDOM.attr("onchange", msg);
+                case ON_CHANGE(f): IncrementalDOM.attr("onchange", (e) -> arch.update(f(e.target.value)));
                 case ON_INPUT(f): IncrementalDOM.attr("oninput", (e) -> arch.update(f(e.target.value)));
                 case ON_KEYDOWN(f): IncrementalDOM.attr("onkeydown", (e) -> arch.update(f(e.key)));
                 case CLASS(value): IncrementalDOM.attr("class", value);
