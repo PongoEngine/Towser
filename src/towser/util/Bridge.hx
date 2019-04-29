@@ -36,6 +36,7 @@ class Bridge
         for(a in attributes) {
             switch a {
                 //MOUSE EVENTS
+                case ON_RESIZE(msg): IncrementalDOM.attr("onresize", arch.update.bind(msg));
                 case ON_CLICK(msg): IncrementalDOM.attr("onclick", arch.update.bind(msg));
                 case ON_DBL_CLICK(msg): IncrementalDOM.attr("ondblclick", arch.update.bind(msg));
                 case AUX_CLICK(msg): IncrementalDOM.attr("onauxclick", arch.update.bind(msg));
