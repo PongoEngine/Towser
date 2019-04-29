@@ -26,7 +26,6 @@ enum Attribute<Msg>
     ON_INPUT(f :String -> Msg);
     ON_KEYDOWN(f :Key -> Msg);
     ON_CHANGE(f :String -> Msg);
-    ON_RESIZE(msg :Msg);
     
     CLASS(value :String);
     ID(value :String);
