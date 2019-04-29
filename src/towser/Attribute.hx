@@ -35,6 +35,13 @@ enum Attribute<Msg>
     STYLE(value :Dynamic);
     VALUE(value :String);
     ATTR(key :String, value :Dynamic);
+
+    CX(val :String);
+    CY(val :String);
+    R(val :String);
+    FILL(val :String);
+    STROKE_WIDTH(val :String);
+    STROKE_MITER_LIMIT(val :String);
 }
 
 @:enum
