@@ -75,10 +75,11 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function button<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function button<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("button", arch, attributes, text);
+            // Bridge.textElement("button", arch, attributes, text);
+            Bridge.containerElement("button", arch, attributes, childRenders);
         }
     }
 
