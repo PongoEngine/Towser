@@ -18,6 +18,13 @@ class Html
         }
     }
 
+    @:extern public static inline function label<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            Bridge.containerElement("label", arch, attributes, childRenders);
+        }
+    }
+
     /**
      * [Description]
      * @param attributes 
