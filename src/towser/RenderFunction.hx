@@ -1,5 +1,7 @@
 package towser;
 
+import towser.architecture.Architecture;
+
 /**
  * 
  */

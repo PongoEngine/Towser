@@ -1,6 +1,7 @@
 package towser;
 
 import towser.util.Bridge;
+import towser.architecture.Architecture;
 
 /**
  * 
@@ -14,7 +15,7 @@ class Html
     @:extern public static inline function div<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.containerElement("div", arch, attributes, childRenders);
+            return Bridge.containerElement("div", arch, attributes, childRenders);
         }
     }
 

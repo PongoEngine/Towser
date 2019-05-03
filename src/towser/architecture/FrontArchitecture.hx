@@ -1,13 +1,14 @@
-package towser;
+package towser.architecture;
 
-import towser.util.IncrementalDOM;
+#if !backend
+import towser.util.Dom;
 import towser.util.LazyMap;
 
-/**
- * 
- */
-class Architecture<Model, Msg>
+
+class FrontArchitecture<Model, Msg>
 {
+    public var markup (default, null) :String = "";
+    
     /**
      * [Description]
      * @param element - Root element ID
@@ -31,14 +32,14 @@ class Architecture<Model, Msg>
     public function update(msg :Msg) : Void
     {
         if(_update(msg, _model)) {
-            IncrementalDOM.patch(_element, _view(_model), this);
+            Dom.patch(_element, _view(_model), this);
         }
     }
 
     private function init(element :String) : Void
     {
         _element = js.Browser.document.getElementById(element);
-        IncrementalDOM.patch(_element, _view(_model), this);
+        Dom.patch(_element, _view(_model), this);
     }
 
     private var _update : Msg -> Model -> Bool;
@@ -48,3 +49,4 @@ class Architecture<Model, Msg>
     @:allow(towser.Lazy)
     private var _lazyMap :LazyMap;
 }
+#end
