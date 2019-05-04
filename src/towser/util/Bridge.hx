@@ -63,6 +63,7 @@ class Bridge
                 case VALUE(value): {
                     Dom.attr("value", new String(value));
                 }
+                case TABINDEX(value): Dom.attr("tabindex", value);
                 case STYLE(value): Dom.attr("style", value);
                 case ATTR(key, value): Dom.attr(key, value);
 
