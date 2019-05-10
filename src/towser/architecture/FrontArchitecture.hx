@@ -4,7 +4,6 @@ package towser.architecture;
 import towser.util.Dom;
 import towser.util.LazyMap;
 
-
 class FrontArchitecture<Model, Msg>
 {
     public var markup (default, null) :String = "";

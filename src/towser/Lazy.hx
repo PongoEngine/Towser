@@ -1,8 +1,8 @@
 package towser;
 
-import towser.Architecture;
+import towser.architecture.Architecture;
 import towser.RenderFunction;
-import towser.util.IncrementalDOM;
+import towser.util.dom.IncrementalDOM;
 
 typedef Lazy1<Model, Msg, A> = A -> RenderFunction<Model, Msg>;
 typedef Lazy2<Model, Msg, A, B> = A -> B -> RenderFunction<Model, Msg>;

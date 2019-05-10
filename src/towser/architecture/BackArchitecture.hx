@@ -28,10 +28,16 @@ class BackArchitecture<Model, Msg>
      * [Description]
      * @param msg 
      */
-    public function update(msg :Msg) : String
+    public function update(msg :Msg) : Model
     {
         _update(msg, _model);
-        return Dom.patch(_view(_model), this);
+        markup = Dom.patch(_view(_model), this);
+        return _model;
+    }
+
+    public function getModel() : Model
+    {
+        return _model;
     }
 
     private function init(element :String) : String
