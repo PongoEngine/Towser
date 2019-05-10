@@ -27,6 +27,7 @@ enum Attribute<Msg>
     ON_KEYDOWN(f :Key -> Msg);
     ON_CHANGE(f :String -> Msg);
     
+    TABINDEX(value :String);
     CLASS(value :String);
     ID(value :String);
     WIDTH(value :String);
