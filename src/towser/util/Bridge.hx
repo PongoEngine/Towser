@@ -57,6 +57,7 @@ class Bridge
                 case ON_INPUT(f): Dom.attr("oninput", (e) -> arch.update(f(e.target.value)));
                 case ON_KEYDOWN(f): Dom.attr("onkeydown", (e) -> arch.update(f(e.key)));
                 case CLASS(value): Dom.attr("class", value);
+                case HREF(value): Dom.attr("href", value);
                 case ID(value): Dom.attr("id", value);
                 case TYPE(value): Dom.attr("type", value);
                 case WIDTH(value): Dom.attr("width", value);

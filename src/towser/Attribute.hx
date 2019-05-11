@@ -29,6 +29,7 @@ enum Attribute<Msg>
     
     TABINDEX(value :String);
     CLASS(value :String);
+    HREF(value :String);
     ID(value :String);
     WIDTH(value :String);
     HEIGHT(value :String);
