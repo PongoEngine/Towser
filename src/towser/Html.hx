@@ -8,14 +8,24 @@ import towser.architecture.Architecture;
  */
 class Html
 {
-    /**
-     * [Description]
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function div<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
             return Bridge.containerElement("div", arch, attributes, childRenders);
+        }
+    }
+
+    @:extern public static inline function ul<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            return Bridge.containerElement("ul", arch, attributes, childRenders);
+        }
+    }
+
+    @:extern public static inline function li<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            return Bridge.containerElement("li", arch, attributes, childRenders);
         }
     }
 
@@ -26,11 +36,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function datalist<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -38,12 +43,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function input<Msg, Model>(attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -51,12 +50,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function canvas<Msg, Model>(attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -64,12 +57,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function br<Msg, Model>() : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -77,12 +64,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function button<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -104,12 +85,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function option<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -117,12 +92,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function span<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -130,12 +99,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function p<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -143,12 +106,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function h1<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -156,12 +113,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function h2<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -169,12 +120,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
     @:extern public static inline function h3<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -182,11 +127,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     */
     @:extern public static inline function h4<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -194,11 +134,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     */
     @:extern public static inline function h5<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
@@ -206,11 +141,6 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     */
     @:extern public static inline function h6<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {

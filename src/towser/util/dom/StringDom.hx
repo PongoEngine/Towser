@@ -4,10 +4,10 @@ import towser.architecture.Architecture;
 
 class StringDom
 {
-    public static function patch<Model, Msg>(description :RenderFunction<Model, Msg>, data :Architecture<Model, Msg>) : String
+    public static function patch<Model, Msg>(fn :RenderFunction<Model, Msg>, data :Architecture<Model, Msg>) : String
     {
         _scratchText = "";
-        description(data);
+        fn(data);
         return _scratchText;
     }
 

@@ -31,7 +31,6 @@ class Bridge
 
     private static function setAttrs<Msg, Model>(attributes :Array<Attribute<Msg>>, arch :Architecture<Model, Msg>) : Void
     {
-#if !backend
         for(a in attributes) {
             switch a {
                 case ON_CLICK(msg): Dom.attr("onclick", arch.update.bind(msg));
@@ -68,7 +67,6 @@ class Bridge
                 case STROKE_WIDTH(value): Dom.attr("stroke-width", value);
             }
         }
-#end
     }
 
     private static var _scratchStatics = [];
