@@ -97,16 +97,10 @@ class Html
         }
     }
 
-    /**
-     * [Description]
-     * @param attributes 
-     * @param text 
-     * @return RenderFunction<Model, Msg>
-     */
-    @:extern public static inline function option<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function text<Msg, Model>(text :String) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("option", arch, attributes, text);
+            Bridge.textElement(text);
         }
     }
 
@@ -116,10 +110,10 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function span<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function option<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("span", arch, attributes, text);
+            Bridge.containerElement("option", arch, attributes, childRenders);
         }
     }
 
@@ -129,10 +123,10 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function p<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function span<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("p", arch, attributes, text);
+            Bridge.containerElement("span", arch, attributes, childRenders);
         }
     }
 
@@ -142,10 +136,10 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function h1<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function p<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h1", arch, attributes, text);
+            Bridge.containerElement("p", arch, attributes, childRenders);
         }
     }
 
@@ -155,10 +149,10 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function h2<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function h1<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h2", arch, attributes, text);
+            Bridge.containerElement("h1", arch, attributes, childRenders);
         }
     }
 
@@ -168,10 +162,23 @@ class Html
      * @param text 
      * @return RenderFunction<Model, Msg>
      */
-    @:extern public static inline function h3<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function h2<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h3", arch, attributes, text);
+            Bridge.containerElement("h2", arch, attributes, childRenders);
+        }
+    }
+
+    /**
+     * [Description]
+     * @param attributes 
+     * @param text 
+     * @return RenderFunction<Model, Msg>
+     */
+    @:extern public static inline function h3<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Architecture<Model, Msg>) {
+            Bridge.containerElement("h3", arch, attributes, childRenders);
         }
     }
 
@@ -180,10 +187,10 @@ class Html
      * @param attributes 
      * @param text 
      */
-    @:extern public static inline function h4<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function h4<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h4", arch, attributes, text);
+            Bridge.containerElement("h4", arch, attributes, childRenders);
         }
     }
 
@@ -192,10 +199,10 @@ class Html
      * @param attributes 
      * @param text 
      */
-    @:extern public static inline function h5<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function h5<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h5", arch, attributes, text);
+            Bridge.containerElement("h5", arch, attributes, childRenders);
         }
     }
 
@@ -204,10 +211,10 @@ class Html
      * @param attributes 
      * @param text 
      */
-    @:extern public static inline function h6<Msg, Model>(attributes :Array<Attribute<Msg>>, text :String) : RenderFunction<Model, Msg>
+    @:extern public static inline function h6<Msg, Model>(attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Architecture<Model, Msg>) {
-            Bridge.textElement("h6", arch, attributes, text);
+            Bridge.containerElement("h6", arch, attributes, childRenders);
         }
     }
 }

@@ -1,5 +1,6 @@
 package towser;
 
+import js.html.KeyboardEvent;
 import js.html.MouseEvent;
 
 /**
@@ -24,7 +25,7 @@ enum Attribute<Msg>
     MOUSE_UP(f :MouseEvent -> Msg);
 
     ON_INPUT(f :String -> Msg);
-    ON_KEYDOWN(f :Key -> Msg);
+    ON_KEYDOWN(f :KeyboardEvent -> Msg);
     ON_CHANGE(f :String -> Msg);
     
     TABINDEX(value :String);
@@ -44,10 +45,4 @@ enum Attribute<Msg>
     FILL(val :String);
     STROKE_WIDTH(val :String);
     STROKE_MITER_LIMIT(val :String);
-}
-
-@:enum
-abstract Key(String)
-{
-    var Enter = "Enter";
 }
