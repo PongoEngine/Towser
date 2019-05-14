@@ -9,9 +9,14 @@ class Bridge
         Dom.text(text);
     }
 
-    public static function containerElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
+    public static inline function skip<Msg, Model>() : Void
     {
-        Dom.elementOpenStart(tagname, "", _scratchStatics);
+        Dom.skipNode();
+    }
+
+    public static function containerElement<Msg, Model>(tagname :String, key :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
+    {
+        Dom.elementOpenStart(tagname, key, _scratchStatics);
         Bridge.setAttrs(attributes, arch);
         Dom.elementOpenEnd();
 
@@ -21,9 +26,9 @@ class Bridge
         Dom.elementClose(tagname);
     }
 
-    public static function voidElement<Msg, Model>(tagname :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
+    public static function voidElement<Msg, Model>(tagname :String, key :String, arch :Architecture<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
     {
-        Dom.elementOpenStart(tagname, "", _scratchStatics);
+        Dom.elementOpenStart(tagname, key, _scratchStatics);
         Bridge.setAttrs(attributes, arch);
         Dom.elementOpenEnd();
         Dom.elementClose(tagname);
