@@ -32,7 +32,3 @@ class Towser<Model, Msg>
         #else :towser.platform.client.ClientTowser<Model, Msg>;
         #end
 }
-
-// #if !backend
-//     #else
-//     #end

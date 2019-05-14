@@ -1,6 +1,0 @@
-node_modules
-.DS_Store
-dist
-app/index.js
-.cache
-yarn.lock

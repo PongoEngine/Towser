@@ -1,5 +1,0 @@
--cp ../../../towser/src
--main Main
--D analyzer-optimize
--dce full
---js app/index.js
