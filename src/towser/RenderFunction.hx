@@ -1,8 +1,8 @@
 package towser;
 
-import towser.architecture.Architecture;
+import towser.Towser;
 
 /**
  * 
  */
-typedef RenderFunction<Model, Msg> = Architecture<Model, Msg> -> Void;
+typedef RenderFunction<Model, Msg> = Towser<Model, Msg> -> Void;

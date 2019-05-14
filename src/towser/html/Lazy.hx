@@ -1,4 +1,4 @@
-package towser;
+package towser.html;
 
 import towser.architecture.Architecture;
 import towser.RenderFunction;

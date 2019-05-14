@@ -1,11 +1,11 @@
-package towser.util.dom;
+package towser.platform.client;
 
 import js.html.Element;
 import js.html.Text;
 import js.html.Node;
 
 @:jsRequire("incremental-dom")
-extern class IncrementalDOM
+extern class ClientDomBuilder
 {
     /**
      * [Description]

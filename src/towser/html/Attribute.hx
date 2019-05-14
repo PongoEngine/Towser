@@ -1,4 +1,4 @@
-package towser;
+package towser.html;
 
 import js.html.KeyboardEvent;
 import js.html.MouseEvent;

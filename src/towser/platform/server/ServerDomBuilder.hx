@@ -1,10 +1,10 @@
-package towser.util.dom;
+package towser.platform.server;
 
-import towser.architecture.Architecture;
+import towser.Towser;
 
-class StringDom
+class ServerDomBuilder
 {
-    public static function patch<Model, Msg>(fn :RenderFunction<Model, Msg>, data :Architecture<Model, Msg>) : String
+    public static function patch<Model, Msg>(fn :RenderFunction<Model, Msg>, data :Towser<Model, Msg>) : String
     {
         _scratchText = "";
         fn(data);

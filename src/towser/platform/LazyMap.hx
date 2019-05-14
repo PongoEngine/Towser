@@ -1,8 +1,6 @@
-package towser
-.util;
+package towser.platform;
 
-import towser
-.RenderFunction;
+import towser.RenderFunction;
 
 /**
  * 

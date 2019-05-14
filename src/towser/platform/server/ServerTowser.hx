@@ -1,10 +1,10 @@
-package towser.architecture;
+package towser.platform.server;
+
+import towser.platform.DomBuilder;
+import towser.platform.LazyMap;
 
 #if backend
-import towser.util.Dom;
-import towser.util.LazyMap;
-
-class BackArchitecture<Model, Msg>
+class ServerTowser<Model, Msg>
 {
     public var markup (default, null) :String = "";
 
@@ -15,24 +15,23 @@ class BackArchitecture<Model, Msg>
      * @param view  - State View Function
      * @param model - State
      */
-    public function new(element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(towser :Towser<Model, Msg>, element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
         _view = view;
         _model = model;
         _lazyMap = new LazyMap();
-        markup = init(element);
+        markup = init(element, towser);
     }
 
     /**
      * [Description]
      * @param msg 
      */
-    public function update(msg :Msg) : Model
+    public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
         _update(msg, _model);
-        markup = Dom.patch(_view(_model), this);
-        return _model;
+        markup = DomBuilder.patch(_view(_model), towser);
     }
 
     public function getModel() : Model
@@ -40,9 +39,9 @@ class BackArchitecture<Model, Msg>
         return _model;
     }
 
-    private function init(element :String) : String
+    private function init(element :String, towser :Towser<Model, Msg>) : String
     {
-        return Dom.patch(_view(_model), this);
+        return DomBuilder.patch(_view(_model), towser);
     }
 
     private var _update : Msg -> Model -> Bool;
