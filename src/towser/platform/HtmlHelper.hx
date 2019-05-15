@@ -40,35 +40,16 @@ class HtmlHelper
     {
         for(a in attributes) {
             switch a {
-                case ON_CLICK(msg): DomBuilder.attr("onclick", arch.update.bind(msg));
-                case ON_DBL_CLICK(msg): DomBuilder.attr("ondblclick", arch.update.bind(msg));
-                case AUX_CLICK(msg): DomBuilder.attr("onauxclick", arch.update.bind(msg));
-                case CONTEXT_MENU(msg): DomBuilder.attr("oncontextmenu", arch.update.bind(msg));
-                case SELECT(msg): DomBuilder.attr("onselect", arch.update.bind(msg));
-                case WHEEL(msg): DomBuilder.attr("onwheel", arch.update.bind(msg));
-                case MOUSE_DOWN(f): DomBuilder.attr("onmousedown", (e) -> arch.update(f(e)));
-                case MOUSE_ENTER(f): DomBuilder.attr("onmouseenter", (e) -> arch.update(f(e)));
-                case MOUSE_LEAVE(f): DomBuilder.attr("onmouseleave", (e) -> arch.update(f(e)));
-                case MOUSE_MOVE(f): DomBuilder.attr("onmousemove", (e) -> arch.update(f(e)));
-                case MOUSE_OVER(f): DomBuilder.attr("onmouseover", (e) -> arch.update(f(e)));
-                case MOUSE_OUT(f): DomBuilder.attr("onmouseout", (e) -> arch.update(f(e)));
-                case MOUSE_UP(f): DomBuilder.attr("onmouseup", (e) -> arch.update(f(e)));
-                case ON_CHANGE(f): DomBuilder.attr("onchange", (e) -> arch.update(f(e.target.value)));
-                case ON_INPUT(f): DomBuilder.attr("oninput", (e) -> arch.update(f(e.target.value)));
-                case ON_KEYDOWN(f): DomBuilder.attr("onkeydown", (e) -> arch.update(f(e)));
-                case ON_SUBMIT(f): DomBuilder.attr("onsubmit", (e) -> arch.update(f(e)));
-                case CLASS(value): DomBuilder.attr("class", value);
-                case HREF(value): DomBuilder.attr("href", value);
-                case ID(value): DomBuilder.attr("id", value);
-                case SRC(value): DomBuilder.attr("src", value);
-                case TYPE(value): DomBuilder.attr("type", value);
-                case WIDTH(value): DomBuilder.attr("width", value);
-                case HEIGHT(value): DomBuilder.attr("height", value);
-                case VALUE(value): DomBuilder.attr("value", new String(value));
-                case TABINDEX(value): DomBuilder.attr("tabindex", value);
+                case MOUSE_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case INPUT_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case KEYBOARD_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case UI_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case WHEEL_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case ATTRIBUTE(key, value): DomBuilder.attr(key, value);
+                case STRING_ATTRIBUTE(key, value): DomBuilder.attr(key, new String(value));
+                case BOOLEAN_ATTRIBUTE(key, value): if(value) DomBuilder.attr(key, true);
                 case STYLE(value): DomBuilder.attr("style", value);
-                case ATTR(key, value): DomBuilder.attr(key, value);
-                case CHECKED(value): if(value) DomBuilder.attr("checked", true);
             }
         }
     }
