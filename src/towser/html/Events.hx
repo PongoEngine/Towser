@@ -28,6 +28,7 @@ class Events
     public static inline function onInput<Msg>(f :InputEvent -> Msg) return INPUT_EVENT("oninput", f);
     //Keyboard Events
     public static inline function onKeydown<Msg>(f :KeyboardEvent -> Msg) return KEYBOARD_EVENT("onkeydown", f);
+    public static inline function onKeyUp<Msg>(f :KeyboardEvent -> Msg) return KEYBOARD_EVENT("onkeyup", f);
     //Event Events
     public static inline function onSubmit<Msg>(f :Event -> Msg) return EVENT("onsubmit", f);
     public static inline function onChange<Msg>(f :Event -> Msg) return EVENT("onchange", f);
