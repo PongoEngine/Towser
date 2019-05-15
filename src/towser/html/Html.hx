@@ -50,6 +50,13 @@ class Html
         }
     }
 
+    @:extern public static inline function img<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Towser<Model, Msg>) {
+            HtmlHelper.voidElement("img", key, arch, attributes);
+        }
+    }
+
     @:extern public static inline function input<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Towser<Model, Msg>) {
@@ -96,6 +103,13 @@ class Html
     {
         return function(arch :Towser<Model, Msg>) {
             HtmlHelper.containerElement("option", key, arch, attributes, childRenders);
+        }
+    }
+
+    @:extern public static inline function strong<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Towser<Model, Msg>) {
+            HtmlHelper.containerElement("strong", key, arch, attributes, childRenders);
         }
     }
 
