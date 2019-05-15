@@ -22,6 +22,13 @@ class Html
         }
     }
 
+    @:extern public static inline function form<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    {
+        return function(arch :Towser<Model, Msg>) {
+            return HtmlHelper.containerElement("form", key, arch, attributes, childRenders);
+        }
+    }
+
     @:extern public static inline function ul<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
     {
         return function(arch :Towser<Model, Msg>) {

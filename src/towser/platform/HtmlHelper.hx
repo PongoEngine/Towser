@@ -56,6 +56,7 @@ class HtmlHelper
                 case ON_CHANGE(f): DomBuilder.attr("onchange", (e) -> arch.update(f(e.target.value)));
                 case ON_INPUT(f): DomBuilder.attr("oninput", (e) -> arch.update(f(e.target.value)));
                 case ON_KEYDOWN(f): DomBuilder.attr("onkeydown", (e) -> arch.update(f(e)));
+                case ON_SUBMIT(f): DomBuilder.attr("onsubmit", (e) -> arch.update(f(e)));
                 case CLASS(value): DomBuilder.attr("class", value);
                 case HREF(value): DomBuilder.attr("href", value);
                 case ID(value): DomBuilder.attr("id", value);
@@ -67,6 +68,7 @@ class HtmlHelper
                 case TABINDEX(value): DomBuilder.attr("tabindex", value);
                 case STYLE(value): DomBuilder.attr("style", value);
                 case ATTR(key, value): DomBuilder.attr(key, value);
+                case CHECKED(value): if(value) DomBuilder.attr("checked", true);
             }
         }
     }

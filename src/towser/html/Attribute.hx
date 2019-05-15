@@ -1,5 +1,6 @@
 package towser.html;
 
+import js.html.Event;
 import js.html.KeyboardEvent;
 import js.html.MouseEvent;
 
@@ -27,6 +28,7 @@ enum Attribute<Msg>
     ON_INPUT(f :String -> Msg);
     ON_KEYDOWN(f :KeyboardEvent -> Msg);
     ON_CHANGE(f :String -> Msg);
+    ON_SUBMIT(f :Event -> Msg);
     
     TABINDEX(value :String);
     CLASS(value :String);
@@ -39,4 +41,5 @@ enum Attribute<Msg>
     STYLE(value :Dynamic);
     VALUE(value :String);
     ATTR(key :String, value :Dynamic);
+    CHECKED(value :Bool);
 }
