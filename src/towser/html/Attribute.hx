@@ -32,17 +32,11 @@ enum Attribute<Msg>
     CLASS(value :String);
     HREF(value :String);
     ID(value :String);
+    SRC(value :String);
     WIDTH(value :String);
     HEIGHT(value :String);
     TYPE(value :String);
     STYLE(value :Dynamic);
     VALUE(value :String);
     ATTR(key :String, value :Dynamic);
-
-    CX(val :String);
-    CY(val :String);
-    R(val :String);
-    FILL(val :String);
-    STROKE_WIDTH(val :String);
-    STROKE_MITER_LIMIT(val :String);
 }

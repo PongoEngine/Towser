@@ -59,6 +59,7 @@ class HtmlHelper
                 case CLASS(value): DomBuilder.attr("class", value);
                 case HREF(value): DomBuilder.attr("href", value);
                 case ID(value): DomBuilder.attr("id", value);
+                case SRC(value): DomBuilder.attr("src", value);
                 case TYPE(value): DomBuilder.attr("type", value);
                 case WIDTH(value): DomBuilder.attr("width", value);
                 case HEIGHT(value): DomBuilder.attr("height", value);
@@ -66,12 +67,6 @@ class HtmlHelper
                 case TABINDEX(value): DomBuilder.attr("tabindex", value);
                 case STYLE(value): DomBuilder.attr("style", value);
                 case ATTR(key, value): DomBuilder.attr(key, value);
-                case CX(value): DomBuilder.attr("cx", value);
-                case CY(value): DomBuilder.attr("cy", value);
-                case FILL(value): DomBuilder.attr("fill", value);
-                case R(value): DomBuilder.attr("r", value);
-                case STROKE_MITER_LIMIT(value): DomBuilder.attr("stroke-miterlimit", value);
-                case STROKE_WIDTH(value): DomBuilder.attr("stroke-width", value);
             }
         }
     }
