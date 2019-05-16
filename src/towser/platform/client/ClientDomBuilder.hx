@@ -44,7 +44,7 @@ extern class ClientDomBuilder
      * @param data 
      * @return Element
      */
-    public static function text<Model, Msg>(value :Dynamic, ?formatters :RenderFunction<Model, Msg>) : Text;
+    public static function text<Model, Msg>(value :Dynamic) : Text;
 
     /**
      * [Description]
