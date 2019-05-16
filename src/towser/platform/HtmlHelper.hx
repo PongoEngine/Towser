@@ -40,12 +40,19 @@ class HtmlHelper
     {
         for(a in attributes) {
             switch a {
-                case MOUSE_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case ANIMATION_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case DRAG_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case ERROR_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case FOCUS_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case INPUT_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case KEYBOARD_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case MOUSE_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case POINTER_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+                case TRANSITION_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case UI_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
-                case EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case WHEEL_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
+
                 case ATTRIBUTE(key, value): DomBuilder.attr(key, value);
                 case STRING_ATTRIBUTE(key, value): DomBuilder.attr(key, new String(value));
                 case BOOLEAN_ATTRIBUTE(key, value): if(value) DomBuilder.attr(key, true);
