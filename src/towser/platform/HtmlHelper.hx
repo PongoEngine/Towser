@@ -33,7 +33,9 @@ class HtmlHelper
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
         HtmlHelper.setAttrs(attributes, arch);
         DomBuilder.elementOpenEnd();
-        // DomBuilder.elementClose(tagname);
+#if !backend
+        DomBuilder.elementClose(tagname);
+#end
     }
 
     private static function setAttrs<Msg, Model>(attributes :Array<Attribute<Msg>>, arch :Towser<Model, Msg>) : Void
