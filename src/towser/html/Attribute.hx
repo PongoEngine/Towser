@@ -6,13 +6,13 @@ import js.html.ErrorEvent;
 import js.html.DragEvent;
 import js.html.FocusEvent;
 import js.html.AnimationEvent;
-import haxe.extern.EitherType;
 import js.html.WheelEvent;
 import js.html.UIEvent;
 import js.html.InputEvent;
 import js.html.Event;
 import js.html.KeyboardEvent;
 import js.html.MouseEvent;
+import haxe.extern.EitherType;
 
 enum Attribute<Msg>
 {

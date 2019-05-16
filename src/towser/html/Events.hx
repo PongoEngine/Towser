@@ -81,25 +81,3 @@ class Events
     public static inline function ontransitioncancel<Msg>(f :TransitionEvent -> Msg) return TRANSITION_EVENT("ontransitioncancel", f);
     public static inline function ontransitionend<Msg>(f :TransitionEvent -> Msg) return TRANSITION_EVENT("ontransitionend", f);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

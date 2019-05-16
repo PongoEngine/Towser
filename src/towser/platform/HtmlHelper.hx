@@ -40,6 +40,7 @@ class HtmlHelper
     {
         for(a in attributes) {
             switch a {
+                //events
                 case ANIMATION_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case DRAG_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case ERROR_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
@@ -52,10 +53,10 @@ class HtmlHelper
                 case TRANSITION_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case UI_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
                 case WHEEL_EVENT(eventName, f): DomBuilder.attr(eventName, (e) -> arch.update(f(e)));
-
+                //attributes
                 case ATTRIBUTE(key, value): DomBuilder.attr(key, value);
-                case STRING_ATTRIBUTE(key, value): DomBuilder.attr(key, new String(value));
                 case BOOLEAN_ATTRIBUTE(key, value): if(value) DomBuilder.attr(key, true);
+                case STRING_ATTRIBUTE(key, value): DomBuilder.attr(key, new String(value));
                 case STYLE(value): DomBuilder.attr("style", value);
             }
         }
