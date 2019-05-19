@@ -5,7 +5,7 @@ import haxe.extern.EitherType;
 
 class Attributes
 {
-    public static inline function clientOrServer<Msg>(serverAttribute :Attribute<Msg>, clientAttribute :Attribute<Msg>)
+    public static inline function clientOrServer<Msg>(clientAttribute :Attribute<Msg>, serverAttribute :Attribute<Msg>)
 #if backend
         return serverAttribute;
 #else 
