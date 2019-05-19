@@ -5,6 +5,13 @@ import haxe.extern.EitherType;
 
 class Attributes
 {
+    public static inline function clientOrServer<Msg>(serverAttribute :Attribute<Msg>, clientAttribute :Attribute<Msg>)
+#if backend
+        return serverAttribute;
+#else 
+        return clientAttribute;
+#end
+
     public static inline function accept<Msg>(value :String) return ATTRIBUTE("accept", value);
     public static inline function acceptCharset<Msg>(value :String) return ATTRIBUTE("accept-charset", value);
     public static inline function accesskey<Msg>(value :String) return ATTRIBUTE("accesskey", value);
