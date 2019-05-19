@@ -47,7 +47,7 @@ class ServerTowser<Model, Msg>
     private var _update : Msg -> Model -> Bool;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
-    @:allow(towser.platform.LazyMap)
+    @:allow(towser.Towser)
     private var _lazyMap :LazyMap;
 }
 #end

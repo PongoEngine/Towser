@@ -50,7 +50,7 @@ class ClientTowser<Model, Msg>
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
-    @:allow(towser.Lazy)
+    @:allow(towser.Towser)
     private var _lazyMap :LazyMap;
 }
 #end
