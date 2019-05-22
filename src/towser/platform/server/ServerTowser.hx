@@ -24,19 +24,25 @@ class ServerTowser<Model, Msg>
         markup = init(element, towser);
     }
 
-    /**
-     * [Description]
-     * @param msg 
-     */
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
         _update(msg, _model);
+        render(towser);
+    }
+
+    public inline function render(towser :Towser<Model, Msg>) : Void
+    {
         markup = DomBuilder.patch(_view(_model), towser);
     }
 
-    public function getModel() : Model
+    public inline function getModel() : Model
     {
         return _model;
+    }
+
+    public inline function setModel(model :Model) : Void
+    {
+        _model = model;
     }
 
     private function init(element :String, towser :Towser<Model, Msg>) : String

@@ -5,6 +5,7 @@ import towser.platform.LazyMap;
 class Towser<Model, Msg>
 {
     public var markup (get, null) :String;
+    public var model (get, set) :Model;
 
     public function new(element :String, update :Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
@@ -19,9 +20,20 @@ class Towser<Model, Msg>
         _arch.update(msg, this);
     }
 
-    public inline function getModel() : Model
+    public inline function render() : Void
+    {
+        _arch.render(this);
+    }
+
+    private inline function get_model() : Model
     {
         return _arch.getModel();
+    }
+
+    private inline function set_model(model :Model) : Model
+    {
+        _arch.setModel(model);
+        return model;
     }
 
     private inline function get_markup() : String

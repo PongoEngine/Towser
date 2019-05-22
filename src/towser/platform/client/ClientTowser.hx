@@ -24,20 +24,26 @@ class ClientTowser<Model, Msg>
         init(element, towser);
     }
 
-    /**
-     * [Description]
-     * @param msg 
-     */
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
         if(_update(msg, _model)) {
-            DomBuilder.patch(_element, _view(_model), towser);
+            render(towser);
         }
     }
 
-    public function getModel() : Model
+    public inline function render(towser :Towser<Model, Msg>) : Void
+    {
+        DomBuilder.patch(_element, _view(_model), towser);
+    }
+
+    public inline function getModel() : Model
     {
         return _model;
+    }
+
+    public inline function setModel(model :Model) : Void
+    {
+        _model = model;
     }
 
     private function init(element :String, towser :Towser<Model, Msg>) : Void
