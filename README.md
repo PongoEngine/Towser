@@ -25,14 +25,14 @@ class Main {
 
 	public static function update(msg:Msg, model:Model):Bool {
 		switch msg {
-			case SayName(name): trace(name);
+			case SayName(name, e): trace(name);
 		}
 		return true;
 	}
 }
 
 enum Msg {
-	SayName(name :String);
+	SayName(name :String, e :Dynamic);
 }
 
 typedef Model =
