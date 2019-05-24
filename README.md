@@ -1,4 +1,5 @@
 # Towser
+![Towser](https://raw.githubusercontent.com/PongoEngine/Towser/master/Towser.svg)
 
 ## Installation
 
