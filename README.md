@@ -1,4 +1,6 @@
-![Towser](Towser.svg)
+<div style="text-align:center">
+	<img alt="Towser" src="Towser.svg" width="50%" height="50%">
+</div>
 
 # Towser
 
