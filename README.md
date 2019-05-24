@@ -1,5 +1,5 @@
 <div align="center">
-	<img alt="Towser" src="Towser.svg" width="50%" height="50%">
+	<img alt="Towser" src="Towser.svg" width="66%" height="66%">
 </div>
 
 # Towser
