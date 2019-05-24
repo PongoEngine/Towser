@@ -1,5 +1,6 @@
-# Towser
 ![Towser](Towser.svg)
+
+# Towser
 
 ## Installation
 
@@ -11,22 +12,22 @@ class Main {
 	static function main() {
 		var model :Model = {name: "Pongo"};
 
-		new Architecture("app", update, view, model);
+		new Towser("app", update, view, model);
 	}
 
 	public static function view(model:Model) : RenderFunction<Model, Msg>
 	{
-		return div([CLASS("full-screen"), ON_CLICK(SayName(model.name))], [
+		return div([class_("full-screen"), onClick(SayName(model.name))], [
 			h1([], "Hello"),
 			p([], model.name)
 		]);
 	}
 
-	public static function update(msg:Msg, model:Model):Model {
+	public static function update(msg:Msg, model:Model):Bool {
 		switch msg {
 			case SayName(name): trace(name);
 		}
-		return model;
+		return true;
 	}
 }
 
