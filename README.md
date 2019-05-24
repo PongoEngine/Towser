@@ -32,7 +32,7 @@ class Main {
 }
 
 enum Msg {
-	SayName(name :String, e :Dynamic);
+	SayName(name :String, e :MouseEvent);
 }
 
 typedef Model =
