@@ -17,7 +17,7 @@ class Main {
 
 	public static function view(model:Model) : RenderFunction<Model, Msg>
 	{
-		return div([class_("full-screen"), onClick(SayName(model.name))], [
+		return div([class_("full-screen"), onClick(SayName.bind(model.name))], [
 			h1([], "Hello"),
 			p([], model.name)
 		]);
