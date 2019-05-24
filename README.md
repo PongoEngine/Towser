@@ -8,7 +8,7 @@
 
 ## Documentation
 
-## Examples
+## Hello World
 ```haxe
 class Main {
 	static function main() {
