@@ -10,9 +10,7 @@
 ```haxe
 class Main {
 	static function main() {
-		var model :Model = {name: "Pongo"};
-
-		new Towser("app", update, view, model);
+		new Towser("app", update, view, {name: "Pongo"});
 	}
 
 	public static function view(model:Model) : RenderFunction<Model, Msg>
