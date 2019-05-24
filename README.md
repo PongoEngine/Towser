@@ -12,7 +12,7 @@
 ```haxe
 class Main {
 	static function main() {
-		new Towser("app", update, view, {name: "Pongo"});
+		new Towser("app", update, view, {name: "Perdita"});
 	}
 
 	public static function view(model:Model) : RenderFunction<Model, Msg>
