@@ -1,36 +1,29 @@
 import towser.Towser;
-import towser.RenderFunction;
-import towser.html.Event;
-import towser.html.Attributes.*;
-import towser.html.Html.*;
-import towser.html.Events.*;
+
+import haxe.unit.TestCase;
+import haxe.unit.TestRunner;
 
 class Main {
 	static function main() {
-		new Towser("app", update, view, {name: "Perdita"});
-	}
-
-	public static function view(model:Model) : RenderFunction<Model, Msg>
-	{
-		return div([class_("full-screen"), onclick(SayName.bind(model.name))], [
-			h1([], [text("Hello")]),
-			p([], [text(model.name)])
-		]);
-	}
-
-	public static function update(msg:Msg, model:Model):Bool {
-		switch msg {
-			case SayName(name, e): trace(name);
-		}
-		return true;
+		var runner = new TestRunner();
+        runner.add(new BaseTest());
+        runner.run();
+        trace(runner.result);
 	}
 }
 
-enum Msg {
-	SayName(name :String, e :MouseEvent);
-}
-
-typedef Model =
+class BaseTest extends TestCase
 {
-	var name :String;
+    public function testHelloPerdita() : Void
+    {
+        var towser = new Towser("app", TestApp.update, TestApp.view, {name: "Perdita"});
+        assertEquals(towser.markup, '<div class="full-screen" ><h1 >Hello</h1><p >Perdita</p></div>');
+    }
+
+    public function testHelloPongo() : Void
+    {
+        var towser = new Towser("app", TestApp.update, TestApp.view, {name: "Perdita"});
+        towser.update(UpdateName("Pongo", null));
+        assertEquals(towser.markup, '<div class="full-screen" ><h1 >Hello</h1><p >Pongo</p></div>');
+    }
 }
