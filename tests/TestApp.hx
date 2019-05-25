@@ -7,26 +7,51 @@ import towser.html.Events.*;
 class TestApp {
 	public static function view(model:Model) : RenderFunction<Model, Msg>
 	{
-		return div([class_("full-screen"), onclick(UpdateName.bind(model.name))], [
-			h1([], [text("Hello")]),
-			p([], [text(model.name)])
-		]);
+		return switch model.section {
+			case Hello: div([class_("full-screen"), onclick(ChangeName.bind("Robot"))], [
+				h1([], [text("Hello")]),
+				p([], [text(model.name)])
+			]);
+			case VoidElements: div([], [
+				area([]),
+				br([]),
+				col([]),
+				embed([]),
+				hr([]),
+				img([]),
+				input([]),
+				param([]),
+				source([]),
+				track([]),
+				wbr([])
+			]);
+		}
 	}
 
 	public static function update(msg:Msg, model:Model):Bool {
 		switch msg {
-			case UpdateName(name, e):
+			case ChangeName(name, e):
 				model.name = name;
+			case ChangeSection(section_):
+				model.section = section_;
 		}
 		return true;
 	}
 }
 
 enum Msg {
-	UpdateName(name :String, e :MouseEvent);
+	ChangeName(name :String, e :MouseEvent);
+	ChangeSection(section :Section);
 }
 
 typedef Model =
 {
 	var name :String;
+	var section :Section;
+}
+
+enum Section
+{
+	Hello;
+	VoidElements;
 }

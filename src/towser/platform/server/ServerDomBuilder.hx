@@ -13,13 +13,13 @@ class ServerDomBuilder
 
     public static function elementOpenStart(tagname :String, key :String, staticPropertyValuePairs :Array<String>) : Void
     {
-        _scratchText += "<"+ tagname + " ";
+        _scratchText += "<"+ tagname;
     }
 
     public static function attr(name :String, value :Dynamic) : Void
     {
         if(!Reflect.isFunction(value)) {
-            _scratchText +=  name + '="' + value + '" ';
+            _scratchText += " " + name + '="' + value + '"';
         }
     }
 
