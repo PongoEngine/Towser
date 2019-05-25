@@ -171,10 +171,10 @@ class Html
         }
     }
 
-    @:extern public static inline function hr<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function hr<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("hr", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("hr", key, towser, attributes);
         }
     }
 
@@ -256,10 +256,10 @@ class Html
         }
     }
 
-    @:extern public static inline function br<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function br<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("br", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("br", key, towser, attributes);
         }
     }
 
@@ -438,18 +438,18 @@ class Html
         }
     }
 
-    @:extern public static inline function wbr<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function wbr<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("wbr", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("wbr", key, towser, attributes);
         }
     }
 
     //Image and multimedia
-    @:extern public static inline function area<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function area<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("area", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("area", key, towser, attributes);
         }
     }
 
@@ -474,10 +474,10 @@ class Html
         }
     }
 
-    @:extern public static inline function track<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function track<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("track", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("track", key, towser, attributes);
         }
     }
 
@@ -496,10 +496,10 @@ class Html
         }
     }
 
-    @:extern public static inline function embed<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function embed<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("embed", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("embed", key, towser, attributes);
         }
     }
 
@@ -524,10 +524,10 @@ class Html
         }
     }
 
-    @:extern public static inline function param<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function param<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("param", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("param", key, towser, attributes);
         }
     }
 
@@ -538,10 +538,10 @@ class Html
         }
     }
 
-    @:extern public static inline function source<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function source<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("source", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("source", key, towser, attributes);
         }
     }
 
@@ -590,10 +590,10 @@ class Html
         }
     }
 
-    @:extern public static inline function col<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : RenderFunction<Model, Msg>
+    @:extern public static inline function col<Msg, Model>(key :String = "", attributes :Array<Attribute<Msg>>) : RenderFunction<Model, Msg>
     {
         return function(towser :Towser<Model, Msg>) {
-            return HtmlHelper.containerElement("col", key, towser, attributes, childRenders);
+            return HtmlHelper.voidElement("col", key, towser, attributes);
         }
     }
 
