@@ -10,6 +10,13 @@
 
 ## Hello World
 ```haxe
+import towser.Towser;
+import towser.RenderFunction;
+import towser.html.Event;
+import towser.html.Attributes.*;
+import towser.html.Html.*;
+import towser.html.Events.*;
+
 class Main {
 	static function main() {
 		new Towser("app", update, view, {name: "Perdita"});
@@ -17,9 +24,9 @@ class Main {
 
 	public static function view(model:Model) : RenderFunction<Model, Msg>
 	{
-		return div([class_("full-screen"), onClick(SayName.bind(model.name))], [
-			h1([], "Hello"),
-			p([], model.name)
+		return div([class_("full-screen"), onclick(SayName.bind(model.name))], [
+			h1([], [text("Hello")]),
+			p([], [text(model.name)])
 		]);
 	}
 
