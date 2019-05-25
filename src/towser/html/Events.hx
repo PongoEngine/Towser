@@ -1,18 +1,7 @@
 package towser.html;
 
-import js.html.TransitionEvent;
-import js.html.PointerEvent;
-import js.html.DragEvent;
-import js.html.AnimationEvent;
-import js.html.WheelEvent;
-import js.html.FocusEvent;
-import js.html.ErrorEvent;
-import js.html.UIEvent;
-import js.html.InputEvent;
-import js.html.Event;
-import js.html.KeyboardEvent;
-import js.html.MouseEvent;
 import towser.html.Attribute;
+import towser.html.Event;
 
 class Events
 {
