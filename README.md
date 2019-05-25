@@ -2,13 +2,15 @@
 	<img alt="Towser" src="Towser.svg" width="66%" height="66%">
 </div>
 
-# Towser
-[![Build Status](https://travis-ci.org/PongoEngine/Towser.svg?branch=master)](https://travis-ci.org/PongoEngine/Towser)
+# Towser [![Build Status](https://travis-ci.org/PongoEngine/Towser.svg?branch=master)](https://travis-ci.org/PongoEngine/Towser)
 
-## Installation
+## About
+**Towser is the Mutable Elm Architechture** built for haxe using Google's Incremental-Dom. The goals of this framework are to be simple without any magical wizardry, easy on the garbage collector, and simple to re-use.
 
+Towser can easily be added as a backend renderer for node using '-D backend'. An example is currently being developed with Koa. It runs the view as a string and appends it to a user defined tempate. The template then gets rendered to the user with an additional js payload that retains the same state the view was rendered with.
 
 ## Documentation
+Documentation is still in the works. I've been playing with the idea of adding more backend functionality but keeping it generic enough to be framework agnostic(Koa, Express, Etc..).
 
 ## Hello World
 ```haxe
