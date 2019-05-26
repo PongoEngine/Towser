@@ -10,7 +10,7 @@
 Towser can easily be adopted into any node framework for serverside rendering using the compiler define 'backend'.
 
 ## Documentation
-Documentation is still in the works. I've been playing with the idea of adding more backend functionality but keeping it generic enough to be framework agnostic(Koa, Express, Etc..).
+Documentation is still in the works. I've been playing with the idea of adding more backend functionality but keeping it generic enough to be framework agnostic(Koa, Express, Etc..). Once those ideas are ironed out more examples will be available with accompanying guides. 
 
 ## Hello World
 ```haxe
