@@ -6,17 +6,17 @@ import towser.platform.DomBuilder;
 
 class HtmlHelper
 {
-    public static inline function textElement<Msg, Model>(text :String) : Void
+    public static inline function textElement<Model, Msg>(text :String) : Void
     {
         DomBuilder.text(text);
     }
 
-    public static inline function skip<Msg, Model>() : Void
+    public static inline function skip<Model, Msg>() : Void
     {
         DomBuilder.skipNode();
     }
 
-    public static function containerElement<Msg, Model>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
+    public static function containerElement<Model, Msg>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
     {
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
         HtmlHelper.setAttrs(attributes, arch);
@@ -28,7 +28,7 @@ class HtmlHelper
         DomBuilder.elementClose(tagname);
     }
 
-    public static function voidElement<Msg, Model>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
+    public static function voidElement<Model, Msg>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Msg>>) : Void
     {
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
         HtmlHelper.setAttrs(attributes, arch);
@@ -38,7 +38,7 @@ class HtmlHelper
 #end
     }
 
-    private static function setAttrs<Msg, Model>(attributes :Array<Attribute<Msg>>, arch :Towser<Model, Msg>) : Void
+    private static function setAttrs<Model, Msg>(attributes :Array<Attribute<Msg>>, arch :Towser<Model, Msg>) : Void
     {
         for(a in attributes) {
             switch a {
