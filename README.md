@@ -8,13 +8,23 @@
 ## Table of Contents
 
 - [About](#about)
-- [Documentation](#documentation)
+- [Current Tasks](#current-tasks)
 - [Features](#features)
 - [Hello World](#hello-world)
 - [Why Haxe and why Mutability?](#why-haxe-and-why-mutability)
 
 ## About
-**Towser is the Mutable Elm Architechture** built using haxe and Google's Incremental-Dom. Towser can easily be adopted into any node framework for serverside rendering using the compiler define '-D backend'.
+**Towser is the Mutable Elm Architechture** built using Haxe and Google's Incremental-Dom. Towser can easily be adopted into any node framework for serverside rendering using the compiler define '-D backend'.
+
+## Current Tasks
+Towser is fully functional for making a MVU applications but is far from being complete. Below is what you can expect now and in the future.
+- [ ] Documentation
+- [x] MVU
+- [x] SSR Strings
+- [ ] Generic SSR functionality
+- [ ] Attribute / Element array pool
+- [ ] CMD line utility for new projects
+- [ ] Examples projects
 
 ## Features
 A few of the features you get with Towser
