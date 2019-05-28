@@ -10,27 +10,19 @@
 - [About](#about)
 - [Documentation](#documentation)
 - [Features](#features)
-- [Why Haxe](#why-haxe)
 - [Hello World](#hello-world)
+- [Why Haxe and why Mutability?](#why-haxe-and-why-mutability)
 
 ## About
-**Towser is the Mutable Elm Architechture** built for haxe using Google's Incremental-Dom. The goals of this framework are to be simple without any magical wizardry, easy on the garbage collector, and simple to re-use.
-
-Towser can easily be adopted into any node framework for serverside rendering using the compiler define 'backend'.
-
-## Documentation
-Documentation is still in the works. I've been playing with the idea of adding more backend functionality but keeping it generic enough to be framework agnostic(Koa, Express, Etc..). Once those ideas are ironed out more examples will be available with accompanying guides. 
+**Towser is the Mutable Elm Architechture** built using haxe and Google's Incremental-Dom. Towser can easily be adopted into any node framework for serverside rendering using the compiler define '-D backend'.
 
 ## Features
 A few of the features you get with Towser
 - One-way data flow
-- Get / Set model easily
-- Ability to manually trigger renders
+- Get / Set model
+- Manually trigger renders
 - Lazy wrappers for render functions
 - Mutable Elm Architcture
-
-## Why Haxe
-Haxe is a strongly typed programming language that transpiles to other target languages. It has many functional qualities like exhaustive pattern matching, first class functions, and currying to name a few. These functional features adapt to the Elm Architecture quite well. I found myself building all my UIs in Elm to interact with my game frameworks written in Haxe. Overtime I realized that the intuitive architecture was my saving grace and decided to cut the middle man. Towser has a couple more helper functions that depend on mutability to save the GC, provide SSR, and provide selective rendering.
 
 ## Hello World
 ```haxe
@@ -72,6 +64,9 @@ typedef Model =
 }
 
 ```
+
+## Why Haxe and why Mutability?
+Haxe is a strongly typed programming language that transpiles to other target languages. It has many functional qualities like exhaustive pattern matching, first class functions, and currying to name a few. These functional features adapt to the Elm Architecture quite well given that Elm is a functional language. Additionaly Haxe has Abstracts which wrap concrete types. These abstract wrappers come with zero runtime cost and make for wonderful APIs. Lastly haxe has mutable data types. I love making games and although it is possible to make a purely functional game I would rather not.
 
 ### License
 
