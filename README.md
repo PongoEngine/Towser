@@ -24,7 +24,7 @@ Towser is fully functional for making a MVU applications but is far from being c
 - [ ] Generic SSR functionality
 - [ ] Attribute / Element array pool
 - [ ] CMD line utility for new projects
-- [ ] Examples projects
+- [ ] Example projects
 
 ## Features
 A few of the features you get with Towser
