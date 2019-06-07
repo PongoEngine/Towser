@@ -20,7 +20,6 @@ class ClientTowser<Model, Msg>
         _update = update;
         _view = view;
         _model = model;
-        _lazyMap = new LazyMap();
         init(element, towser);
     }
 
@@ -56,7 +55,5 @@ class ClientTowser<Model, Msg>
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
-    @:allow(towser.Towser)
-    private var _lazyMap :LazyMap;
 }
 #end

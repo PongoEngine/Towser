@@ -45,10 +45,6 @@ class Towser<Model, Msg>
         #if backend :towser.platform.server.ServerTowser<Model, Msg>;
         #else :towser.platform.client.ClientTowser<Model, Msg>;
         #end
-
     @:allow(towser.html.Lazy)
-    private inline function lazyMap() : LazyMap
-    {
-        return _arch._lazyMap;
-    }
+    private var _lazyMap = new LazyMap();
 }

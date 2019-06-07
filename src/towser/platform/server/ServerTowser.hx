@@ -20,7 +20,6 @@ class ServerTowser<Model, Msg>
         _update = update;
         _view = view;
         _model = model;
-        _lazyMap = new LazyMap();
         markup = init(element, towser);
     }
 
@@ -53,7 +52,5 @@ class ServerTowser<Model, Msg>
     private var _update : Towser<Model, Msg> -> Msg -> Model -> Bool;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
-    @:allow(towser.Towser)
-    private var _lazyMap :LazyMap;
 }
 #end
