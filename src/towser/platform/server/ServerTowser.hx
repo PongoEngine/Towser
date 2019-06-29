@@ -25,7 +25,7 @@ class ServerTowser<Model, Msg>
 
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
-        _update(this, msg, _model);
+        _update(towser, msg, _model);
         render(towser);
     }
 
