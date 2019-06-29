@@ -3,6 +3,7 @@ import towser.html.Event;
 import towser.html.Attributes.*;
 import towser.html.Html.*;
 import towser.html.Events.*;
+import towser.Towser;
 
 class TestApp {
 	public static function view(model:Model) : RenderFunction<Model, Msg>
@@ -28,7 +29,7 @@ class TestApp {
 		}
 	}
 
-	public static function update(msg:Msg, model:Model):Bool {
+	public static function update(towser :Towser<Model, Msg>, msg:Msg, model:Model):Bool {
 		switch msg {
 			case ChangeName(name, e):
 				model.name = name;
