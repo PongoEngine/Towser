@@ -1,327 +1,327 @@
 package towser.html;
 
-import towser.html.Attribute;
 import towser.html.Event;
+import towser.platform.DomBuilder;
 
 class Events
 {
-    public static inline function onanimationcancel<Msg>(f :AnimationEvent -> Msg) : Attribute<Msg>
+    public static inline function onanimationcancel<Model, Msg>(f :AnimationEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return ANIMATION_EVENT("onanimationcancel", f);
+        return (t) -> DomBuilder.attr("onanimationcancel", (e) -> t.update(f(e)));
     }
     
-    public static inline function onanimationend<Msg>(f :AnimationEvent -> Msg) : Attribute<Msg>
+    public static inline function onanimationend<Model, Msg>(f :AnimationEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return ANIMATION_EVENT("onanimationend", f);
+        return (t) -> DomBuilder.attr("onanimationend", (e) -> t.update(f(e)));
     }
     
-    public static inline function onblur<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onblur<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onblur", f);
+        return (t) -> DomBuilder.attr("onblur", (e) -> t.update(f(e)));
     }
     
-    public static inline function oncancel<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oncancel<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oncancel", f);
+        return (t) -> DomBuilder.attr("oncancel", (e) -> t.update(f(e)));
     }
     
-    public static inline function oncanplay<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oncanplay<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oncanplay", f);
+        return (t) -> DomBuilder.attr("oncanplay", (e) -> t.update(f(e)));
     }
     
-    public static inline function oncanplaythrough<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oncanplaythrough<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oncanplaythrough", f);
+        return (t) -> DomBuilder.attr("oncanplaythrough", (e) -> t.update(f(e)));
     }
     
-    public static inline function onchange<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onchange<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onchange", f);
+        return (t) -> DomBuilder.attr("onchange", (e) -> t.update(f(e)));
     }
     
-    public static inline function onclick<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onclick<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onclick", f);
+        return (t) -> DomBuilder.attr("onclick", (e) -> t.update(f(e)));
     }
     
-    public static inline function onclose<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onclose<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onclose", f);
+        return (t) -> DomBuilder.attr("onclose", (e) -> t.update(f(e)));
     }
     
-    public static inline function oncontextmenu<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oncontextmenu<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oncontextmenu", f);
+        return (t) -> DomBuilder.attr("oncontextmenu", (e) -> t.update(f(e)));
     }
     
-    public static inline function oncuechange<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oncuechange<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oncuechange", f);
+        return (t) -> DomBuilder.attr("oncuechange", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondblclick<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function ondblclick<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("ondblclick", f);
+        return (t) -> DomBuilder.attr("ondblclick", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondrag<Msg>(f :DragEvent -> Msg) : Attribute<Msg>
+    public static inline function ondrag<Model, Msg>(f :DragEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondrag", f);
+        return (t) -> DomBuilder.attr("ondrag", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragend<Msg>(f :DragEvent -> Msg) : Attribute<Msg>
+    public static inline function ondragend<Model, Msg>(f :DragEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragend", f);
+        return (t) -> DomBuilder.attr("ondragend", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragenter<Msg>(f :DragEvent -> Msg) : Attribute<Msg>
+    public static inline function ondragenter<Model, Msg>(f :DragEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragenter", f);
+        return (t) -> DomBuilder.attr("ondragenter", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragexit<Msg>(f :DragEvent -> Msg) : Attribute<Msg>
+    public static inline function ondragexit<Model, Msg>(f :DragEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragexit", f);
+        return (t) -> DomBuilder.attr("ondragexit", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragleave<Msg>(f :DragEvent -> Msg) : Attribute<Msg>
+    public static inline function ondragleave<Model, Msg>(f :DragEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragleave", f);
+        return (t) -> DomBuilder.attr("ondragleave", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragover<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function ondragover<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragover", f);
+        return (t) -> DomBuilder.attr("ondragover", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondragstart<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function ondragstart<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return DRAG_EVENT("ondragstart", f);
+        return (t) -> DomBuilder.attr("ondragstart", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondrop<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function ondrop<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("ondrop", f);
+        return (t) -> DomBuilder.attr("ondrop", (e) -> t.update(f(e)));
     }
     
-    public static inline function ondurationchange<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function ondurationchange<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("ondurationchange", f);
+        return (t) -> DomBuilder.attr("ondurationchange", (e) -> t.update(f(e)));
     }
     
-    public static inline function onerror<Msg>(f :ErrorEvent -> Msg) : Attribute<Msg>
+    public static inline function onerror<Model, Msg>(f :ErrorEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return ERROR_EVENT("onerror", f);
+        return (t) -> DomBuilder.attr("onerror", (e) -> t.update(f(e)));
     }
     
-    public static inline function onemptied<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onemptied<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onemptied", f);
+        return (t) -> DomBuilder.attr("onemptied", (e) -> t.update(f(e)));
     }
     
-    public static inline function onended<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onended<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onended", f);
+        return (t) -> DomBuilder.attr("onended", (e) -> t.update(f(e)));
     }
     
-    public static inline function onfocus<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onfocus<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onfocus", f);
+        return (t) -> DomBuilder.attr("onfocus", (e) -> t.update(f(e)));
     }
     
-    public static inline function ongotpointercapture<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function ongotpointercapture<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("ongotpointercapture", f);
+        return (t) -> DomBuilder.attr("ongotpointercapture", (e) -> t.update(f(e)));
     }
     
-    public static inline function oninput<Msg>(f :InputEvent -> Msg) : Attribute<Msg>
+    public static inline function oninput<Model, Msg>(f :InputEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return INPUT_EVENT("oninput", f);
+        return (t) -> DomBuilder.attr("oninput", (e) -> t.update(f(e)));
     }
     
-    public static inline function oninvalid<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function oninvalid<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("oninvalid", f);
+        return (t) -> DomBuilder.attr("oninvalid", (e) -> t.update(f(e)));
     }
     
-    public static inline function onkeydown<Msg>(f :KeyboardEvent -> Msg) : Attribute<Msg>
+    public static inline function onkeydown<Model, Msg>(f :KeyboardEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return KEYBOARD_EVENT("onkeydown", f);
+        return (t) -> DomBuilder.attr("onkeydown", (e) -> t.update(f(e)));
     }
     
-    public static inline function onkeypress<Msg>(f :KeyboardEvent -> Msg) : Attribute<Msg>
+    public static inline function onkeypress<Model, Msg>(f :KeyboardEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return KEYBOARD_EVENT("onkeypress", f);
+        return (t) -> DomBuilder.attr("onkeypress", (e) -> t.update(f(e)));
     }
     
-    public static inline function onkeyup<Msg>(f :KeyboardEvent -> Msg) : Attribute<Msg>
+    public static inline function onkeyup<Model, Msg>(f :KeyboardEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return KEYBOARD_EVENT("onkeyup", f);
+        return (t) -> DomBuilder.attr("onkeyup", (e) -> t.update(f(e)));
     }
     
-    public static inline function onload<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onload<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onload", f);
+        return (t) -> DomBuilder.attr("onload", (e) -> t.update(f(e)));
     }
     
-    public static inline function onloadeddata<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onloadeddata<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onloadeddata", f);
+        return (t) -> DomBuilder.attr("onloadeddata", (e) -> t.update(f(e)));
     }
     
-    public static inline function onloadedmetadata<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onloadedmetadata<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onloadedmetadata", f);
+        return (t) -> DomBuilder.attr("onloadedmetadata", (e) -> t.update(f(e)));
     }
     
-    public static inline function onloadend<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onloadend<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onloadend", f);
+        return (t) -> DomBuilder.attr("onloadend", (e) -> t.update(f(e)));
     }
     
-    public static inline function onloadstart<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onloadstart<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onloadstart", f);
+        return (t) -> DomBuilder.attr("onloadstart", (e) -> t.update(f(e)));
     }
     
-    public static inline function onlostpointercapture<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onlostpointercapture<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onlostpointercapture", f);
+        return (t) -> DomBuilder.attr("onlostpointercapture", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmousedown<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmousedown<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmousedown", f);
+        return (t) -> DomBuilder.attr("onmousedown", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmouseenter<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmouseenter<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmouseenter", f);
+        return (t) -> DomBuilder.attr("onmouseenter", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmouseleave<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmouseleave<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmouseleave", f);
+        return (t) -> DomBuilder.attr("onmouseleave", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmousemove<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmousemove<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmousemove", f);
+        return (t) -> DomBuilder.attr("onmousemove", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmouseout<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmouseout<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmouseout", f);
+        return (t) -> DomBuilder.attr("onmouseout", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmouseover<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmouseover<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmouseover", f);
+        return (t) -> DomBuilder.attr("onmouseover", (e) -> t.update(f(e)));
     }
     
-    public static inline function onmouseup<Msg>(f :MouseEvent -> Msg) : Attribute<Msg>
+    public static inline function onmouseup<Model, Msg>(f :MouseEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return MOUSE_EVENT("onmouseup", f);
+        return (t) -> DomBuilder.attr("onmouseup", (e) -> t.update(f(e)));
     }
     
-    public static inline function onwheel<Msg>(f :WheelEvent -> Msg) : Attribute<Msg>
+    public static inline function onwheel<Model, Msg>(f :WheelEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return WHEEL_EVENT("onwheel", f);
+        return (t) -> DomBuilder.attr("onwheel", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpause<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onpause<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onpause", f);
+        return (t) -> DomBuilder.attr("onpause", (e) -> t.update(f(e)));
     }
     
-    public static inline function onplay<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onplay<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onplay", f);
+        return (t) -> DomBuilder.attr("onplay", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerdown<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerdown<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerdown", f);
+        return (t) -> DomBuilder.attr("onpointerdown", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointermove<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointermove<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointermove", f);
+        return (t) -> DomBuilder.attr("onpointermove", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerup<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerup<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerup", f);
+        return (t) -> DomBuilder.attr("onpointerup", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointercancel<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointercancel<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointercancel", f);
+        return (t) -> DomBuilder.attr("onpointercancel", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerover<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerover<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerover", f);
+        return (t) -> DomBuilder.attr("onpointerover", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerout<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerout<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerout", f);
+        return (t) -> DomBuilder.attr("onpointerout", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerenter<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerenter<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerenter", f);
+        return (t) -> DomBuilder.attr("onpointerenter", (e) -> t.update(f(e)));
     }
     
-    public static inline function onpointerleave<Msg>(f :PointerEvent -> Msg) : Attribute<Msg>
+    public static inline function onpointerleave<Model, Msg>(f :PointerEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return POINTER_EVENT("onpointerleave", f);
+        return (t) -> DomBuilder.attr("onpointerleave", (e) -> t.update(f(e)));
     }
     
-    public static inline function onreset<Msg>(f :Event -> Msg) : Attribute<Msg>
+    public static inline function onreset<Model, Msg>(f :Event -> Msg) : Towser<Model, Msg> -> Void
     {
-        return EVENT("onreset", f);
+        return (t) -> DomBuilder.attr("onreset", (e) -> t.update(f(e)));
     }
     
-    public static inline function onresize<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onresize<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onresize", f);
+        return (t) -> DomBuilder.attr("onresize", (e) -> t.update(f(e)));
     }
     
-    public static inline function onscroll<Msg>(f :UIEvent -> Msg) : Attribute<Msg>
+    public static inline function onscroll<Model, Msg>(f :UIEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return UI_EVENT("onscroll", f);
+        return (t) -> DomBuilder.attr("onscroll", (e) -> t.update(f(e)));
     }
     
-    public static inline function onselect<Msg>(f :UIEvent -> Msg) : Attribute<Msg>
+    public static inline function onselect<Model, Msg>(f :UIEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return UI_EVENT("onselect", f);
+        return (t) -> DomBuilder.attr("onselect", (e) -> t.update(f(e)));
     }
     
-    public static inline function onselectstart<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onselectstart<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onselectstart", f);
+        return (t) -> DomBuilder.attr("onselectstart", (e) -> t.update(f(e)));
     }
     
-    public static inline function onselectionchange<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onselectionchange<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onselectionchange", f);
+        return (t) -> DomBuilder.attr("onselectionchange", (e) -> t.update(f(e)));
     }
     
-    public static inline function onsubmit<Msg>(f :FocusEvent -> Msg) : Attribute<Msg>
+    public static inline function onsubmit<Model, Msg>(f :FocusEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return FOCUS_EVENT("onsubmit", f);
+        return (t) -> DomBuilder.attr("onsubmit", (e) -> t.update(f(e)));
     }
     
-    public static inline function ontransitioncancel<Msg>(f :TransitionEvent -> Msg) : Attribute<Msg>
+    public static inline function ontransitioncancel<Model, Msg>(f :TransitionEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return TRANSITION_EVENT("ontransitioncancel", f);
+        return (t) -> DomBuilder.attr("ontransitioncancel", (e) -> t.update(f(e)));
     }
     
-    public static inline function ontransitionend<Msg>(f :TransitionEvent -> Msg) : Attribute<Msg>
+    public static inline function ontransitionend<Model, Msg>(f :TransitionEvent -> Msg) : Towser<Model, Msg> -> Void
     {
-        return TRANSITION_EVENT("ontransitionend", f);
+        return (t) -> DomBuilder.attr("ontransitionend", (e) -> t.update(f(e)));
     }
 }
