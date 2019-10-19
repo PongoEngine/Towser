@@ -207,6 +207,11 @@ class Attributes
         return ATTRIBUTE("dir", value);
     }
 
+    public static inline function directory<Msg>(value :Bool) : Attribute<Msg>
+    {
+        return BOOLEAN_ATTRIBUTE("nwdirectory", value);
+    }
+
     public static inline function dirname<Msg>(value :String) : Attribute<Msg>
     {
         return ATTRIBUTE("dirname", value);
