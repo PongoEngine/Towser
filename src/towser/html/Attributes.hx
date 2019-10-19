@@ -5,15 +5,6 @@ import haxe.extern.EitherType;
 
 class Attributes
 {
-    public static inline function clientOrServer<Msg>(clientAttribute :Attribute<Msg>, serverAttribute :Attribute<Msg>) : Attribute<Msg>
-#if backend
-        return serverAttribute;
-#elseif macro
-        return serverAttribute;
-#elseif client
-        return clientAttribute;
-#end
-
     public static inline function accept<Msg>(value :String) : Attribute<Msg>
     {
         return ATTRIBUTE("accept", value);
