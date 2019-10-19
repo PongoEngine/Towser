@@ -9,9 +9,9 @@ class LazyMap
 {
     public function new() : Void
     {
-        _lazy1 = new Map<String, {valA :Any}>();
-        _lazy2 = new Map<String, {valA :Any, valB :Any}>();
-        _lazy3 = new Map<String, {valA :Any, valB :Any, valC :Any}>();
+        _lazy1 = new Map<String, {valA :Stamp}>();
+        _lazy2 = new Map<String, {valA :Stamp, valB :Stamp}>();
+        _lazy3 = new Map<String, {valA :Stamp, valB :Stamp, valC :Stamp}>();
     }
 
     /**
@@ -19,9 +19,9 @@ class LazyMap
      * @param selector 
      * @param valA 
      */
-    public function setLazy1(selector :String, valA :Any) : Void
+    public function setLazy1<A:LazyStamp>(selector :String, valA :A) : Void
     {
-        _lazy1.set(selector, {valA:valA});
+        _lazy1.set(selector, {valA:valA.stamp});
     }
 
     /**
@@ -30,9 +30,9 @@ class LazyMap
      * @param valA 
      * @param valB 
      */
-    public function setLazy2(selector :String, valA :Any, valB :Any) : Void
+    public function setLazy2<A:LazyStamp,B:LazyStamp>(selector :String, valA :A, valB :B) : Void
     {
-        _lazy2.set(selector, {valA:valA, valB:valB});
+        _lazy2.set(selector, {valA:valA.stamp, valB:valB.stamp});
     }
 
     /**
@@ -42,9 +42,9 @@ class LazyMap
      * @param valB 
      * @param valC 
      */
-    public function setLazy3(selector :String, valA :Any, valB :Any, valC :Any) : Void
+    public function setLazy3<A:LazyStamp,B:LazyStamp,C:LazyStamp>(selector :String, valA :A, valB :B, valC :C) : Void
     {
-        _lazy3.set(selector, {valA:valA, valB:valB, valC:valC});
+        _lazy3.set(selector, {valA:valA.stamp, valB:valB.stamp, valC:valC.stamp});
     }
 
     /**
@@ -53,10 +53,10 @@ class LazyMap
      * @param valA 
      * @return Bool
      */
-    public function shouldSkip1(selector :String, valA :Any) : Bool
+    public function shouldSkip1<A:LazyStamp>(selector :String, valA :A) : Bool
     {
         var val = _lazy1.get(selector);
-        return val != null && val.valA == valA;
+        return val != null && valA.stamp == val.valA;
     }
 
     /**
@@ -66,10 +66,10 @@ class LazyMap
      * @param valB 
      * @return Bool
      */
-    public function shouldSkip2(selector :String, valA :Any, valB :Any) : Bool
+    public function shouldSkip2<A:LazyStamp,B:LazyStamp>(selector :String, valA :A, valB :B) : Bool
     {
         var val = _lazy2.get(selector);
-        return val != null && val.valA == valA && val.valB == valB;
+        return val != null && valA.stamp == val.valA && valB.stamp == val.valB;
     }
 
     /**
@@ -80,13 +80,34 @@ class LazyMap
      * @param valC 
      * @return Bool
      */
-    public function shouldSkip3(selector :String, valA :Any, valB :Any, valC :Any) : Bool
+    public function shouldSkip3<A:LazyStamp,B:LazyStamp,C:LazyStamp>(selector :String, valA :A, valB :B, valC :C) : Bool
     {
         var val = _lazy3.get(selector);
-        return val != null && val.valA == valA && val.valB == valB && val.valC == valC;
+        return val != null && valA.stamp == val.valA && valB.stamp == val.valB && valC.stamp == val.valC;
     }
 
-    private var _lazy1 :Map<String, {valA :Any}>;
-    private var _lazy2 :Map<String, {valA :Any, valB :Any}>;
-    private var _lazy3 :Map<String, {valA :Any, valB :Any, valC :Any}>;
+    private var _lazy1 :Map<String, {valA :Stamp}>;
+    private var _lazy2 :Map<String, {valA :Stamp, valB :Stamp}>;
+    private var _lazy3 :Map<String, {valA :Stamp, valB :Stamp, valC :Stamp}>;
+}
+
+interface LazyStamp
+{
+    var stamp :Stamp;
+}
+
+abstract Stamp(Int)
+{
+    public inline function new() : Void
+    {
+        this = 0;
+    }
+
+    public inline function next() : Stamp
+    {
+        return cast js.lib.Date.now();
+    }
+
+    @:op(A > B) static function gt(a:Stamp, b:Stamp):Bool;
+    @:op(A < B) static function lt(a:Stamp, b:Stamp):Bool;
 }

@@ -11,6 +11,7 @@ class Towser<Model, Msg>
     {
         _arch = new 
             #if backend towser.platform.server.ServerTowser<Model, Msg>(this, element, update, view, model);
+            #elseif macro towser.platform.macro.MacroTowser<Model, Msg>(this, element, update, view, model);
             #else towser.platform.client.ClientTowser<Model, Msg>(this, element, update, view, model);
             #end
     }
@@ -43,6 +44,7 @@ class Towser<Model, Msg>
 
     private var _arch 
         #if backend :towser.platform.server.ServerTowser<Model, Msg>;
+        #elseif macro :towser.platform.macro.MacroTowser<Model, Msg>;
         #else :towser.platform.client.ClientTowser<Model, Msg>;
         #end
     @:allow(towser.html.Lazy)
