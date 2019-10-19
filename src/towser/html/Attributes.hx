@@ -8,7 +8,9 @@ class Attributes
     public static inline function clientOrServer<Msg>(clientAttribute :Attribute<Msg>, serverAttribute :Attribute<Msg>) : Attribute<Msg>
 #if backend
         return serverAttribute;
-#else 
+#elseif macro
+        return serverAttribute;
+#elseif client
         return clientAttribute;
 #end
 
