@@ -1,9 +1,5 @@
 package towser.platform.server;
 
-import towser.platform.DomBuilder;
-import towser.platform.LazyMap;
-
-#if backend
 class ServerTowser<Model, Msg>
 {
     public var markup (default, null) :String = "";
@@ -53,4 +49,3 @@ class ServerTowser<Model, Msg>
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
 }
-#end

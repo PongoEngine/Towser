@@ -1,7 +1,5 @@
 package towser.platform;
 
-import towser.RenderFunction;
-
 /**
  * 
  */
@@ -105,7 +103,11 @@ abstract Stamp(Int)
 
     public inline function next() : Stamp
     {
+#if client
         return cast js.lib.Date.now();
+#else
+        return cast 0;
+#end
     }
 
     @:op(A > B) static function gt(a:Stamp, b:Stamp):Bool;

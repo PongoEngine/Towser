@@ -3,8 +3,6 @@ package towser.platform.client;
 import towser.platform.DomBuilder;
 import towser.platform.LazyMap;
 
-#if !backend
-#if !macro
 class ClientTowser<Model, Msg>
 {
     public var markup (default, null) :String = "";
@@ -57,5 +55,3 @@ class ClientTowser<Model, Msg>
     private var _model :Model;
     private var _element :js.html.Element;
 }
-#end
-#end

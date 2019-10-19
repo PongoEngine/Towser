@@ -1,9 +1,5 @@
 package towser.platform.macro;
 
-import towser.platform.DomBuilder;
-import towser.platform.LazyMap;
-
-#if macro
 class MacroTowser<Model, Msg>
 {
     public var markup (default, null) :String = "";
@@ -41,4 +37,3 @@ class MacroTowser<Model, Msg>
         return "";
     }
 }
-#end

@@ -5,6 +5,6 @@ typedef DomBuilder =
         towser.platform.server.ServerDomBuilder;
     #elseif macro
         towser.platform.macro.MacroDomBuilder;
-    #else
+    #elseif client
         towser.platform.client.ClientDomBuilder;
     #end
