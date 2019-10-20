@@ -1,46 +1,38 @@
 package towser.platform;
 
-import towser.html.Attributes;
+import towser.html.Attribute;
 import towser.Towser;
 import towser.platform.DomBuilder;
 
 class HtmlHelper
 {
-    public static inline function textElement<Model, Msg>(text :String) : Void
+    @:extern public static inline function textElement<Model, Msg>(text :String) : Void
     {
         DomBuilder.text(text);
     }
 
-    public static inline function skip<Model, Msg>() : Void
+    @:extern public static inline function skip<Model, Msg>() : Void
     {
         DomBuilder.skipNode();
     }
 
-    public static function containerElement<Model, Msg>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Model, Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
+    public static function containerElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, key :String, attributes :Array<Attribute<Model, Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
     {
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
-        HtmlHelper.setAttrs(attributes, arch);
+        for(attribute in attributes) attribute(towser);
         DomBuilder.elementOpenEnd();
-
-        for(r in childRenders) {
-            r(arch);
-        }
+        for(r in childRenders) r(towser);
         DomBuilder.elementClose(tagname);
     }
 
-    public static function voidElement<Model, Msg>(tagname :String, key :String, arch :Towser<Model, Msg>, attributes :Array<Attribute<Model, Msg>>) : Void
+    public static function voidElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, key :String, attributes :Array<Attribute<Model, Msg>>) : Void
     {
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
-        HtmlHelper.setAttrs(attributes, arch);
+        for(attribute in attributes) attribute(towser);
         DomBuilder.elementOpenEnd();
 #if !backend
         DomBuilder.elementClose(tagname);
 #end
-    }
-
-    private static inline function setAttrs<Model, Msg>(attributes :Array<Attribute<Model, Msg>>, towser :Towser<Model, Msg>) : Void
-    {
-        for(attribute in attributes) attribute(towser);
     }
 
     private static var _scratchStatics = [];
