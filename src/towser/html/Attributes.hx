@@ -3,7 +3,7 @@ package towser.html;
 import haxe.extern.EitherType;
 import towser.platform.DomBuilder;
 
-class Attributes
+@:extern class Attributes
 {
     public static inline function accept<Model, Msg>(value :String) : Attribute<Model, Msg>
     {

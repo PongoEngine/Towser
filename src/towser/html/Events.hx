@@ -3,7 +3,7 @@ package towser.html;
 import towser.html.Event;
 import towser.platform.DomBuilder;
 
-class Events
+@:extern class Events
 {
     public static inline function onanimationcancel<Model, Msg>(f :AnimationEvent -> Msg) : Attribute<Model, Msg>
     {
