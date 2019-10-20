@@ -2,4 +2,5 @@
 -cp tests/
 -main Main
 -D backend
+-lib hx3compat
 --interp
