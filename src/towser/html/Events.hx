@@ -42,7 +42,7 @@ import towser.platform.DomBuilder;
     
     public static inline function onclick<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onclick", (e) -> t.update(f(e)));
+        return onMouseEvent("onclick", f);
     }
     
     public static inline function onclose<Model, Msg>(f :Event -> Msg) : Attribute<Model, Msg>
@@ -62,7 +62,7 @@ import towser.platform.DomBuilder;
     
     public static inline function ondblclick<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("ondblclick", (e) -> t.update(f(e)));
+        return onMouseEvent("ondblclick", f);
     }
     
     public static inline function ondrag<Model, Msg>(f :DragEvent -> Msg) : Attribute<Model, Msg>
@@ -192,37 +192,37 @@ import towser.platform.DomBuilder;
     
     public static inline function onmousedown<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmousedown", (e) -> t.update(f(e)));
+        return onMouseEvent("onmousedown", f);
     }
     
     public static inline function onmouseenter<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmouseenter", (e) -> t.update(f(e)));
+        return onMouseEvent("onmouseenter", f);
     }
     
     public static inline function onmouseleave<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmouseleave", (e) -> t.update(f(e)));
+        return onMouseEvent("onmouseleave", f);
     }
     
     public static inline function onmousemove<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmousemove", (e) -> t.update(f(e)));
+        return onMouseEvent("onmousemove", f);
     }
     
     public static inline function onmouseout<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmouseout", (e) -> t.update(f(e)));
+        return onMouseEvent("onmouseout", f);
     }
     
     public static inline function onmouseover<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmouseover", (e) -> t.update(f(e)));
+        return onMouseEvent("onmouseover", f);
     }
     
     public static inline function onmouseup<Model, Msg>(f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
-        return (t) -> DomBuilder.attr("onmouseup", (e) -> t.update(f(e)));
+        return onMouseEvent("onmouseup", f);
     }
     
     public static inline function onwheel<Model, Msg>(f :WheelEvent -> Msg) : Attribute<Model, Msg>
@@ -323,5 +323,21 @@ import towser.platform.DomBuilder;
     public static inline function ontransitionend<Model, Msg>(f :TransitionEvent -> Msg) : Attribute<Model, Msg>
     {
         return (t) -> DomBuilder.attr("ontransitionend", (e) -> t.update(f(e)));
+    }
+
+    private static inline function onMouseEvent<Model, Msg>(event :String, f :MouseEvent -> Msg) : Attribute<Model, Msg>
+    {
+        return (t) -> {
+#if client
+            var timeout :Int = null;
+            DomBuilder.attr(event, (e) -> {
+                if (timeout != null) {
+                    js.Browser.window.cancelAnimationFrame(timeout);
+                }
+                
+                timeout = js.Browser.window.requestAnimationFrame((time) -> t.update(f(e)));
+            });
+#end
+        };
     }
 }

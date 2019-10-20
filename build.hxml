@@ -1,6 +1,16 @@
 -cp src/
 -cp tests/
 -main Main
+-D client
+-lib hx3compat
+--js out.js
+--no-output
+
+--next
+
+-cp src/
+-cp tests/
+-main Main
 -D backend
 -lib hx3compat
 --interp
