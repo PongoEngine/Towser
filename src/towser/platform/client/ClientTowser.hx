@@ -14,7 +14,7 @@ class ClientTowser<Model, Msg>
      * @param view  - State View Function
      * @param model - State
      */
-    public function new(towser :Towser<Model, Msg>, element :String, update :Towser<Model, Msg> -> Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(towser :Towser<Model, Msg>, element :String, update :Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
         _view = view;
@@ -24,14 +24,13 @@ class ClientTowser<Model, Msg>
 
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
-        if(_update(towser, msg, _model)) {
-            render(towser);
+        switch _update(towser, msg, _model) {
+            case NONE:
+            case FULL:
+                DomBuilder.patch(_element, _view(_model), towser);
+            case PARTIAL(element, render):
+                DomBuilder.patch(element, render, towser);
         }
-    }
-
-    public inline function render(towser :Towser<Model, Msg>) : Void
-    {
-        DomBuilder.patch(_element, _view(_model), towser);
     }
 
     public inline function getModel() : Model
@@ -50,7 +49,7 @@ class ClientTowser<Model, Msg>
         DomBuilder.patch(_element, _view(_model), towser);
     }
 
-    private var _update : Towser<Model, Msg> -> Msg -> Model -> Bool;
+    private var _update : Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;

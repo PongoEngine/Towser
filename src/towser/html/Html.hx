@@ -4,9 +4,9 @@ import towser.platform.HtmlHelper;
 import towser.Towser;
 import towser.html.Attributes;
 
-typedef Element = #if backend Dynamic #elseif macro Dynamic #else js.html.Element #end;
-typedef Text = #if backend Dynamic #elseif macro Dynamic #else js.html.Text #end;
-typedef Node = #if backend Dynamic #elseif macro Dynamic #else js.html.Node #end;
+
+
+
 
 /**
  * 

@@ -1,6 +1,8 @@
 package towser.platform.client;
 
-import towser.html.Html;
+import towser.html.Element;
+import towser.html.Text;
+import towser.html.Node;
 
 @:jsRequire("incremental-dom")
 extern class ClientDomBuilder

@@ -1,3 +1,4 @@
+import towser.RenderType;
 import towser.RenderFunction;
 import towser.html.Event;
 import towser.html.Attributes.*;
@@ -29,14 +30,16 @@ class TestApp {
 		}
 	}
 
-	public static function update(towser :Towser<Model, Msg>, msg:Msg, model:Model):Bool {
-		switch msg {
+	public static function update(towser :Towser<Model, Msg>, msg:Msg, model:Model) : RenderType<Model, Msg> 
+	{
+		return switch msg {
 			case ChangeName(name, e):
 				model.name = name;
+				FULL;
 			case ChangeSection(section_):
 				model.section = section_;
+				FULL;
 		}
-		return true;
 	}
 }
 

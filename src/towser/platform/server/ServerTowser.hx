@@ -11,7 +11,7 @@ class ServerTowser<Model, Msg>
      * @param view  - State View Function
      * @param model - State
      */
-    public function new(towser :Towser<Model, Msg>, element :String, update :Towser<Model, Msg> -> Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(towser :Towser<Model, Msg>, element :String, update :Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
         _view = view;
@@ -22,11 +22,6 @@ class ServerTowser<Model, Msg>
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
         _update(towser, msg, _model);
-        render(towser);
-    }
-
-    public inline function render(towser :Towser<Model, Msg>) : Void
-    {
         markup = DomBuilder.patch(_view(_model), towser);
     }
 
@@ -45,7 +40,7 @@ class ServerTowser<Model, Msg>
         return DomBuilder.patch(_view(_model), towser);
     }
 
-    private var _update : Towser<Model, Msg> -> Msg -> Model -> Bool;
+    private var _update : Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
 }

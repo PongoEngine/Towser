@@ -7,7 +7,7 @@ class Towser<Model, Msg>
     public var markup (get, null) :String;
     public var model (get, set) :Model;
 
-    public function new(element :String, update :Towser<Model, Msg> -> Msg -> Model -> Bool, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(element :String, update :Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _arch = new 
             #if backend towser.platform.server.ServerTowser<Model, Msg>(this, element, update, view, model);
@@ -19,11 +19,6 @@ class Towser<Model, Msg>
     public inline function update(msg :Msg) : Void
     {
         _arch.update(msg, this);
-    }
-
-    public inline function render() : Void
-    {
-        _arch.render(this);
     }
 
     private inline function get_model() : Model
