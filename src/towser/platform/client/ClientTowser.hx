@@ -24,7 +24,8 @@ class ClientTowser<Model, Msg>
 
     public function update(msg :Msg, towser :Towser<Model, Msg>) : Void
     {
-        switch _update(towser, msg, _model) {
+        var renderType = _update(towser, msg, _model);
+        switch renderType {
             case NONE:
             case FULL:
                 DomBuilder.patch(_element, _view(_model), towser);
@@ -53,4 +54,5 @@ class ClientTowser<Model, Msg>
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
+    private var _timeout :Int = null;
 }

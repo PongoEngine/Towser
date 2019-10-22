@@ -4,7 +4,7 @@
     "license": "MIT",
     "tags": ["incremental-dom", "declarative", "web", "framework", "elm", "architecture"],
     "description": "Incremental Dom + Haxe + Elm Architechture",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "classPath": "src/",
     "releasenote": "Add Partial rendering",
     "contributors": ["Jeremy"],
