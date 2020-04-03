@@ -13,7 +13,7 @@ class Towser<Model, Msg>
      * @param view  - State View Function
      * @param model - State
      */
-    public function new(element :String, update :Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
+    public function new(element :String, update :Towser<Model, Msg> -> Msg -> Model -> Void, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
         _update = update;
         _view = view;
@@ -23,7 +23,7 @@ class Towser<Model, Msg>
 
     public inline function update(msg :Msg) : Void
     {
-        var renderType = _update(this, msg, _model);
+        _update(this, msg, _model);
         _view(_model);
     }
 
@@ -42,7 +42,7 @@ class Towser<Model, Msg>
         _view(_model)(this);
     }
 
-    private var _update : Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>;
+    private var _update : Towser<Model, Msg> -> Msg -> Model -> Void;
     private var _view :Model -> RenderFunction<Model, Msg>;
     private var _model :Model;
     private var _element :js.html.Element;
