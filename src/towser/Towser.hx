@@ -1,7 +1,6 @@
 package towser;
 
 import towser.platform.DomBuilder;
-import towser.platform.LazyMap;
 
 class Towser<Model, Msg>
 {
@@ -25,13 +24,7 @@ class Towser<Model, Msg>
     public inline function update(msg :Msg) : Void
     {
         var renderType = _update(this, msg, _model);
-        switch renderType {
-            case NONE:
-            case FULL:
-                DomBuilder.patch(_element, _view(_model), this);
-            case PARTIAL(element, render):
-                DomBuilder.patch(element, render, this);
-        }
+        _view(_model);
     }
 
     public inline function getModel() : Model
@@ -46,8 +39,7 @@ class Towser<Model, Msg>
 
     private function init(element :String) : Void
     {
-        _element = js.Browser.document.getElementById(element);
-        DomBuilder.patch(_element, _view(_model), this);
+        _view(_model)(this);
     }
 
     private var _update : Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>;

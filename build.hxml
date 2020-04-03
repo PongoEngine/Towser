@@ -1,6 +1,7 @@
 -cp src/
 -cp tests/
 -main Main
--lib hx3compat
---js out.js
---no-output
+# --js out.js
+# --no-output
+--macro allowPackage("js")
+--interp

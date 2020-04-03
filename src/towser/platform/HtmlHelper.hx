@@ -11,23 +11,18 @@ class HtmlHelper
         DomBuilder.text(text);
     }
 
-    @:extern public static inline function skip<Model, Msg>() : Void
+    public static function containerElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, attributes :Array<Attribute<Model, Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
     {
-        DomBuilder.skipNode();
-    }
-
-    public static function containerElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, key :String, attributes :Array<Attribute<Model, Msg>>, childRenders :Array<RenderFunction<Model, Msg>>) : Void
-    {
-        DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
+        DomBuilder.elementOpenStart(tagname, _scratchStatics);
         for(attribute in attributes) attribute(towser);
         DomBuilder.elementOpenEnd();
         for(r in childRenders) r(towser);
         DomBuilder.elementClose(tagname);
     }
 
-    public static function voidElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, key :String, attributes :Array<Attribute<Model, Msg>>) : Void
+    public static function voidElement<Model, Msg>(towser :Towser<Model, Msg>, tagname :String, attributes :Array<Attribute<Model, Msg>>) : Void
     {
-        DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
+        DomBuilder.elementOpenStart(tagname, _scratchStatics);
         for(attribute in attributes) attribute(towser);
         DomBuilder.elementOpenEnd();
         DomBuilder.elementClose(tagname);

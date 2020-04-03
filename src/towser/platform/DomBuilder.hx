@@ -4,8 +4,7 @@ import towser.html.Element;
 import towser.html.Text;
 import towser.html.Node;
 
-@:jsRequire("incremental-dom")
-extern class DomBuilder
+class DomBuilder
 {
     /**
      * [Description]
@@ -14,7 +13,10 @@ extern class DomBuilder
      * @param staticPropertyValuePairs 
      * @return Dynamic
      */
-    public static function elementOpenStart(tagname :String, key :String, staticPropertyValuePairs :Array<String>) : Dynamic;
+    public static function elementOpenStart(tagname :String, staticPropertyValuePairs :Array<String>) : String
+    {
+        return "";
+    }
 
     /**
      * [Description]
@@ -22,20 +24,29 @@ extern class DomBuilder
      * @param value 
      * @return Dynamic
      */
-    public static function attr(name :String, value :Any) : Dynamic;
+    public static function attr(name :String, value :Any) : String
+    {
+        return "";
+    }
 
     /**
      * [Description]
      * @return Element
      */
-    public static function elementOpenEnd() : Element;
+    public static function elementOpenEnd() : String
+    {
+        return "";
+    }
 
     /**
      * [Description]
      * @param tagname 
      * @return Element
      */
-    public static function elementClose(tagname :String) : Element;
+    public static function elementClose(tagname :String) : String
+    {
+        return "";
+    }
 
     /**
      * [Description]
@@ -44,19 +55,8 @@ extern class DomBuilder
      * @param data 
      * @return Element
      */
-    public static function text<Model, Msg>(value :Dynamic) : Text;
-
-    /**
-     * [Description]
-     * @param node 
-     * @param description 
-     * @param data 
-     * @return Element
-     */
-    public static function patch<Model, Msg>(node :Node, description :RenderFunction<Model, Msg>, data :Any) : Element;
-
-    /**
-     * [Description]
-     */
-    public static function skipNode() : Void;
+    public static function text<Model, Msg>(value :Dynamic) : String
+    {
+        return "";
+    }
 }

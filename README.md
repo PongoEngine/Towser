@@ -31,7 +31,6 @@ A few of the features you get with Towser
 - One-way data flow
 - Get / Set model
 - Manually trigger renders
-- Lazy wrappers for render functions
 - Mutable Elm Architcture
 
 ## Hello World
