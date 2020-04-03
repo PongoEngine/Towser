@@ -2,7 +2,7 @@
     "name": "towser",
     "url" : "https://github.com/PongoEngine/Towser",
     "license": "MIT",
-    "tags": ["incremental-dom", "declarative", "web", "framework", "elm", "architecture"],
+    "tags": ["declarative", "web", "framework", "elm", "architecture"],
     "description": "Incremental Dom + Haxe + Elm Architechture",
     "version": "0.1.1",
     "classPath": "src/",

@@ -3,7 +3,7 @@
 </div>
 
 # Towser [![Build Status](https://travis-ci.org/PongoEngine/Towser.svg?branch=master)](https://travis-ci.org/PongoEngine/Towser) [![Join the chat at https://gitter.im/pongo-towser/community](https://badges.gitter.im/pongo-towser/community.svg)](https://gitter.im/pongo-towser/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-🐶Incremental Dom + Haxe + Elm Architechture + SSR
+🐶Haxe + Elm Architechture + SSG
 
 ## Table of Contents
 

@@ -328,7 +328,6 @@ import towser.platform.DomBuilder;
     private static inline function onMouseEvent<Model, Msg>(event :String, f :MouseEvent -> Msg) : Attribute<Model, Msg>
     {
         return (t) -> {
-#if client
             var timeout :Int = null;
             DomBuilder.attr(event, (e) -> {
                 if (timeout != null) {
@@ -337,7 +336,6 @@ import towser.platform.DomBuilder;
                 
                 timeout = js.Browser.window.requestAnimationFrame((time) -> t.update(f(e)));
             });
-#end
         };
     }
 }

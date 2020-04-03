@@ -30,9 +30,7 @@ class HtmlHelper
         DomBuilder.elementOpenStart(tagname, key, _scratchStatics);
         for(attribute in attributes) attribute(towser);
         DomBuilder.elementOpenEnd();
-#if !backend
         DomBuilder.elementClose(tagname);
-#end
     }
 
     private static var _scratchStatics = [];

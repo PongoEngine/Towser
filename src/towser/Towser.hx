@@ -1,47 +1,58 @@
 package towser;
 
+import towser.platform.DomBuilder;
 import towser.platform.LazyMap;
 
 class Towser<Model, Msg>
 {
-    public var markup (get, null) :String;
-    public var model (get, set) :Model;
-
+    public var markup (default, null) :String = "";
+    
+    /**
+     * [Description]
+     * @param element - Root element ID
+     * @param update - State Update Function
+     * @param view  - State View Function
+     * @param model - State
+     */
     public function new(element :String, update :Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>, view :Model -> RenderFunction<Model, Msg>, model :Model) : Void
     {
-        _arch = new 
-            #if backend towser.platform.server.ServerTowser<Model, Msg>(this, element, update, view, model);
-            #elseif macro towser.platform.macro.MacroTowser<Model, Msg>(this, element, update, view, model);
-            #elseif client towser.platform.client.ClientTowser<Model, Msg>(this, element, update, view, model);
-            #end
+        _update = update;
+        _view = view;
+        _model = model;
+        init(element);
     }
 
     public inline function update(msg :Msg) : Void
     {
-        _arch.update(msg, this);
+        var renderType = _update(this, msg, _model);
+        switch renderType {
+            case NONE:
+            case FULL:
+                DomBuilder.patch(_element, _view(_model), this);
+            case PARTIAL(element, render):
+                DomBuilder.patch(element, render, this);
+        }
     }
 
-    private inline function get_model() : Model
+    public inline function getModel() : Model
     {
-        return _arch.getModel();
+        return _model;
     }
 
-    private inline function set_model(model :Model) : Model
+    public inline function setModel(model :Model) : Void
     {
-        _arch.setModel(model);
-        return model;
+        _model = model;
     }
 
-    private inline function get_markup() : String
+    private function init(element :String) : Void
     {
-        return _arch.markup;
+        _element = js.Browser.document.getElementById(element);
+        DomBuilder.patch(_element, _view(_model), this);
     }
 
-    private var _arch 
-        #if backend :towser.platform.server.ServerTowser<Model, Msg>;
-        #elseif macro :towser.platform.macro.MacroTowser<Model, Msg>;
-        #elseif client :towser.platform.client.ClientTowser<Model, Msg>;
-        #end
-    @:allow(towser.html.Lazy)
-    private var _lazyMap = new LazyMap();
+    private var _update : Towser<Model, Msg> -> Msg -> Model -> RenderType<Model, Msg>;
+    private var _view :Model -> RenderFunction<Model, Msg>;
+    private var _model :Model;
+    private var _element :js.html.Element;
+    private var _timeout :Int = null;
 }
